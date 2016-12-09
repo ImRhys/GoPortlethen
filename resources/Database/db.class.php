@@ -2,12 +2,14 @@
 
 namespace Database;
 
+use \PDO;
+
 
 class db {
 
   public $db;
 
-  public function __construct($dbname) {
+  public function __construct($dbname = "") {
     $ahost = '';
     $adbname = '';
     $auser = '';
