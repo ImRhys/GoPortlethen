@@ -11,13 +11,17 @@ class query {
   private $db;
   private $result;
 
+  public function __construct(db $db) {
+    $this->setDBHandle($db);
+  }
+
   /**
    * Execute the SQL Query
    */
   public function runQuery() {
     $stmt = $this->db->prepare($this->query);
     $stmt->execute($this->parameters);
-    $this->result = $stmt->fetch();
+    $this->result = $stmt->fetchall();
   }
 
   /**
