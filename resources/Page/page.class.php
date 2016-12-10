@@ -14,9 +14,9 @@ class page {
   private $JSFoot = "";
   private $CSS = "";
 
-  private $pageTitle = "";
-  private $pageDescription = "";
-  private $pageKeywords = "";
+  private $title = "";
+  private $description = "";
+  private $keywords = "";
 
   /**
    * Tagifies the passed name into a CSS tag
@@ -86,14 +86,14 @@ class page {
    * @param string $title
    */
   public function setPageTitle($title) {
-    $this->pageTitle = $title;
+    $this->title = $title;
   }
 
   /**
    * Gets the page title
    */
   public function getPageTitle() {
-    $this->pageTitle;
+    $this->title;
   }
 
   /**
@@ -101,7 +101,19 @@ class page {
    * @param string $description
    */
   public function setPageDescription($description) {
-    $this->pageDescription = $description;
+    $this->description = $description;
+  }
+
+  /**
+   * Helper function to set all important meta tags at once
+   * @param string $title page title
+   * @param string $description page description
+   * @param string $keywords comma seperated page keywords
+   */
+  public function setAllMeta($title, $description, $keywords) {
+    $this->title = $title;
+    $this->description = $description;
+    $this->keywords = $keywords;
   }
 
   /**
@@ -109,7 +121,7 @@ class page {
    * @return string
    */
   public function getPageDescription() {
-    return $this->pageDescription;
+    return $this->description;
   }
 
   /**
@@ -117,7 +129,7 @@ class page {
    * @param string $keywords comma separated list of keywords
    */
   public function setPageKeywords($keywords) {
-    $this->pageKeywords = $keywords;
+    $this->keywords = $keywords;
   }
 
   /**
@@ -125,7 +137,7 @@ class page {
    * @return string comma separated list of keywords
    */
   public function getPageKeywords() {
-    return $this->pageKeywords;
+    return $this->keywords;
   }
 
   /**
@@ -136,9 +148,9 @@ class page {
       '<!DOCTYPE html>' .
       '<html>' .
       '<head>' .
-      ($this->pageTitle !== "" ? '<title>' . $this->pageTitle . '</title>' : "" ) .
-      ($this->pageDescription !== "" ? '<meta name="description" content="' . $this->pageDescription . '">' : "") .
-      ($this->pageKeywords !== "" ? '<meta name="keywords" content="' . $this->pageKeywords . '">' : "") .
+      ($this->title !== "" ? '<title>' . $this->title . '</title>' : "" ) .
+      ($this->description !== "" ? '<meta name="description" content="' . $this->description . '">' : "") .
+      ($this->keywords !== "" ? '<meta name="keywords" content="' . $this->keywords . '">' : "") .
       $this->CSS .
       $this->JSHead .
       $this->header .

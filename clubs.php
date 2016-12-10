@@ -2,9 +2,10 @@
 
 require 'global.php';
 
-$page->setPageTitle("Clubs");
-$page->setPageDescription("lots of clubs.");
-$page->setPageKeywords("lots, of, clubs");
+//$page->setPageTitle("Clubs");
+//$page->setPageDescription("lots of clubs.");
+//$page->setPageKeywords("lots, of, clubs");
+$page->setAllMeta("Clubs", "clubs of clubness", "lots,of,clubs");
 
 $page->addCSS("somecssfile.css");
 $page->addHeaderJS("somejsfile.js");
