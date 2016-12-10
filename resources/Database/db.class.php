@@ -9,13 +9,14 @@ use \Config\Config as Config;
 class db {
 
   public $db;
+  public $debug;
 
   public function __construct($dbname = "") {
 
-    $config = new Config();
-    $debug = $config->get("debug");
+    $this->debug = Config::get("debug");
+    unset($config);
 
-    if ($debug) {
+    if ($this->debug) {
       //If we're using a local database in debug mode
       $ahost = "changeme";
       $adbname = "changeme";
@@ -45,6 +46,9 @@ class db {
       $adbname = $dbname;
     }
 
+    //Add the database name into the config array for access by other things
+    Config::add("dbname", $adbname);
+
     //Set up PDO
     $options = array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8');
     try {
@@ -58,7 +62,7 @@ class db {
       );
     } catch (PDOException $ex) {
       //Fail if we can't connect and/or display a message if we're in debug mode
-      die("Failed to connect to the database " . ($debug ? $ex->getMessage() : ""));
+      die("Failed to connect to the database " . ($this->debug ? $ex->getMessage() : ""));
     }
     $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     $db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
@@ -67,6 +71,10 @@ class db {
     $this->db = $db;
   }
 
+  /**
+   * Get the PDO handle
+   * @return PDO database handle
+   */
   public function getHandle() {
     return $this->db;
   }

@@ -4,27 +4,20 @@ namespace Config;
 
 
 class Config {
-  private $config;
-
-  public function __construct() {
-    $this->config = $this->setConfig();
-  }
-
-  private function setConfig() {
-    return [
-      "sitename" => "GoPortlethen",
-      "debug" => false
-    ];
-  }
+  private static $configarr = array(
+    "sitename" => "GoPortlethen",
+    "debug" => false,
+    "dbname" => "", //Set in db.class.php
+  );
 
   /**
    * Get a value from the config array with passed key
    * @param $key array key
    * @return mixed array value for key
    */
-  public function get($key) {
-    if (isset($this->config[$key])) {
-      return $this->config[$key];
+  public static function get($key) {
+    if (isset(Config::$configarr[$key])) {
+      return Config::$configarr[$key];
     }
   }
 
@@ -33,15 +26,15 @@ class Config {
    * @param $key array key
    * @param $value array value
    */
-  public function add($key, $value) {
-    $this->config[$key] = $value;
+  public static function add($key, $value) {
+    Config::$configarr[$key] = $value;
   }
 
   /**
    * Returns the entire config array
    * @return array config aray
    */
-  public function getall() {
-    return $this->config;
+  public static function getAll() {
+    return Config::$configarr;
   }
 }
