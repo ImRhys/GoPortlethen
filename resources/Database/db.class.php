@@ -18,10 +18,10 @@ class db {
 
     if ($this->debug) {
       //If we're using a local database in debug mode
-      $ahost = "changeme";
-      $adbname = "changeme";
-      $auser = "changeme";
-      $apass = "changeme";
+      $ahost = "127.0.0.1";
+      $adbname = "test";
+      $auser = "root";
+      $apass = "";
 
     } else {
       //create an Azure connection from the system var we're given

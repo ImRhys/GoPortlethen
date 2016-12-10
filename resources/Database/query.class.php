@@ -23,7 +23,7 @@ class query {
 
   /**
    * Get the result of the query
-   * @return mixed
+   * @return array
    */
   public function getResult() {
     return $this->result;
@@ -58,6 +58,6 @@ class query {
    * @param db $db database handle
    */
   public function setDBHandle(db $db) {
-    $this->db = $db;
+    $this->db = $db->getHandle();
   }
 }
