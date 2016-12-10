@@ -10,7 +10,6 @@ class query {
   private $query;
   private $db;
   private $result;
-  public $config;
 
   /**
    * Execute the SQL Query
