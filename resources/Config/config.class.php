@@ -13,7 +13,7 @@ class Config {
   private function setConfig() {
     return [
       "sitename" => "GoPortlethen",
-      "dbname" => "test"
+      "debug" => false
     ];
   }
 
