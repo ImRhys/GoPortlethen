@@ -8,5 +8,5 @@ if (\Config\Config::get("displayerror")) {
   error_reporting(E_ALL);
 }
 
-$db = new \Database\db();
+$db = new \Database\db("acsm_d8ea6c769e71af1");
 $page = new \Page\page();
