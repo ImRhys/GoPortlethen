@@ -10,10 +10,7 @@ $page->addCSS("extra.css");
 $page->renderHeader();
 $page->echoHeader();
 
-//echo "<div class='container pushdown'><pre>";
-//print_r($result);
-//print_r($_GET);
-//echo "</pre></div>";
+$page->startSession();
 
 $genreQuery = new \Database\Queries\genre($db);
 $genreQuery->runQuery();

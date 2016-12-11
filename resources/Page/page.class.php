@@ -153,7 +153,7 @@ class page {
       '<!DOCTYPE html>' .
       '<html>' .
       '<head>' .
-      ($this->title !== "" ? '<title>' . $this->title . '</title>' : "" ) .
+      ($this->title !== "" ? '<title>' . $this->title . '</title>' : "") .
       ($this->description !== "" ? '<meta name="description" content="' . $this->description . '">' : "") .
       ($this->keywords !== "" ? '<meta name="keywords" content="' . $this->keywords . '">' : "") .
       $this->CSS .
@@ -187,6 +187,22 @@ class page {
    */
   public function echoFooter() {
     echo $this->footer;
+  }
+
+  /**
+   * Start or regenerate a new or current session
+   */
+  public function startSession() {
+    if (session_status() !== PHP_SESSION_ACTIVE)
+      session_start();
+
+    if (!isset($_SESSION['CREATED'])) {
+      $_SESSION['CREATED'] = time();
+    } elseif (time() - $_SESSION['CREATED'] > 1800) {
+      // session started more than 30 minutes ago
+      session_regenerate_id(true);
+      $_SESSION['CREATED'] = time(); //update creation time
+    }
   }
 
 }
