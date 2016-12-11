@@ -34,7 +34,7 @@ $genreQuery->runQuery();
       </div>
       <div id="navbar" class="collapse navbar-collapse">
         <ul class="nav navbar-nav">
-          <li><a href="index.php">Home</a></li>
+          <li><a href="indextest.php">Home</a></li>
           <li class="active"><a href="clubs.php">Clubs</a></li>
           <li><a href="#">Health and Wellbeing</a></li>
         </ul>
