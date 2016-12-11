@@ -51,7 +51,7 @@ $result = $query->getResult();
       </thead>
       <?php foreach ($result as $thing) { ?>
         <tr>
-          <td><?= $thing['clubName'] ?></td>
+          <td class="col-md-3"><?= $thing['clubName'] ?></td>
           <td><?= $thing['description'] ?></td>
         </tr>
       <?php } ?>
@@ -62,13 +62,23 @@ $result = $query->getResult();
     <nav aria-label="Page navigation">
       <ul class="pagination">
         <li>
-          <a href="#" aria-label="Previous">
+          <a href="clubs.php?page=1" aria-label="Previous" title="First">
+            <span aria-hidden="true">&laquo;</span>
+          </a>
+        </li>
+        <li>
+          <a href="clubs.php?page=<?= $query->getPaginationPrevious() ?>" aria-label="Previous" title="Previous">
             <span aria-hidden="true">&laquo;</span>
           </a>
         </li>
         <?= $query->generatePaginationLinks("clubs.php") ?>
         <li>
-          <a href="#" aria-label="Next">
+          <a href="clubs.php?page=<?= $query->getPaginationNext() ?>" aria-label="Next" title="Next">
+            <span aria-hidden="true">&raquo;</span>
+          </a>
+        </li>
+        <li>
+          <a href="clubs.php?page=<?= $query->getPaginationLast() ?>" aria-label="Next" title="Last">
             <span aria-hidden="true">&raquo;</span>
           </a>
         </li>
