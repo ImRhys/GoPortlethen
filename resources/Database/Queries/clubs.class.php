@@ -11,7 +11,6 @@ class clubs extends \Database\query {
 
   function __construct(\Database\db $db) {
     $this->setDBHandle($db);
-    $this->setPQuery(1);
   }
 
   /**
@@ -28,14 +27,13 @@ class clubs extends \Database\query {
       $this->setParameters([":genre" => intval($_GET['g'])]);
     }
 
-    $extra = strlen($extra) > 0 ? "\nAND" : "WHERE ";
-
     //if a text search is set
     if (isset($_GET['ts']) && strlen($_GET['ts']) > 0) {
+      $extra = strlen($extra) > 0 ? "\nAND" : " WHERE "; //Add our where or and depending on the previous statement size
       $_GET['ts'] = filter_var($_GET['ts'], FILTER_SANITIZE_STRING);
-      $extra .= "clubName = :name";
+      $extra .= "clubName LIKE :name";
       $arr = $this->getParameters();
-      $arr[":name"] = $_GET['ts'];
+      $arr[":name"] = "%" . $_GET['ts'] . "%";
       $this->setParameters($arr);
     }
 
@@ -45,8 +43,6 @@ class clubs extends \Database\query {
       ORDER BY clubName ASC
       LIMIT $startFrom, $this->resultsPerPage
     ");
-
-    echo $this->getQuery();
   }
 
   public function easyRun() {
@@ -65,8 +61,15 @@ class clubs extends \Database\query {
     //Set current page
     $this->currentPage = $page;
 
-    //Get the number of pages
-    $this->setQuery("SELECT COUNT(*) FROM club");
+    //Set our original query up so we can get the string
+    $this->setPQuery();
+
+    //Get the number of pages by replacing the first astrix with a count expression, a little bit hacky
+    $pos = strpos($this->getQuery(), "*");
+    if ($pos !== false) {
+      $this->setQuery(substr_replace($this->getQuery(), " COUNT(*) ", $pos, strlen("*")));
+    }
+
     $this->runQuery();
     $this->totalPages = ceil(intval($this->getResult()[0]["COUNT(*)"]) / $this->resultsPerPage); //Very crude way, but it works
 
