@@ -64,14 +64,23 @@ class clubs extends \Database\query {
     //Set our original query up so we can get the string
     $this->setPQuery();
 
-    //Get the number of pages by replacing the first astrix with a count expression, a little bit hacky
-    $pos = strpos($this->getQuery(), "*");
-    if ($pos !== false) {
-      $this->setQuery(substr_replace($this->getQuery(), " COUNT(*) ", $pos, strlen("*")));
+    //If any of our get vars are set perform some magic or just give us a normal query (without this funky things happen to the pagination)
+    if ((isset($_GET['g']) && is_numeric($_GET['g']) && intval($_GET['g']) != 0) || (isset($_GET['ts']) && strlen($_GET['ts']) > 0)) {
+      //Get the number of pages by replacing the first astrix with a count expression, a little bit hacky
+      $pos = strpos($this->getQuery(), "*");
+      if ($pos !== false) {
+        $this->setQuery(substr_replace($this->getQuery(), "COUNT(*)", $pos, strlen("*")));
+      }
+    } else {
+      $this->setQuery("SELECT COUNT(*) FROM club");
     }
+
+    echo $this->getQuery();
 
     $this->runQuery();
     $this->totalPages = ceil(intval($this->getResult()[0]["COUNT(*)"]) / $this->resultsPerPage); //Very crude way, but it works
+
+    print_r($this->getResult());
 
     //Set out main query and run
     $this->setPQuery();
