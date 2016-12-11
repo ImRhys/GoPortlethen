@@ -31,7 +31,7 @@ class db {
       $apass = '';
 
       foreach ($_SERVER as $key => $value) {
-        if (strpos($key, "MYSQLCONNSTR_localdb") !== 0) {
+        if (strpos($key, "MYSQLCONNSTR_defaultConnection") !== 0) {
           continue;
         }
         $ahost = preg_replace("/^.*Data Source=(.+?);.*$/", "\\1", $value);
@@ -45,8 +45,6 @@ class db {
     if ($dbname !== "") {
       $adbname = $dbname;
     }
-
-    echo $adbname;
 
     //Add the database name into the config array for access by other things
     Config::add("dbname", $adbname);
