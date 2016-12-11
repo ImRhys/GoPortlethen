@@ -10,9 +10,12 @@ $page->addCSS("extra.css");
 $page->renderHeader();
 $page->echoHeader();
 
-$query = new \Database\Queries\clubs($db);
-$query->easyRun();
-$result = $query->getResult();
+$clubsQuery = new \Database\Queries\clubs($db);
+$clubsQuery->easyRun();
+$clubsResult = $clubsQuery->getResult();
+
+$genreQuery = new \Database\Queries\genre($db);
+$genreQuery->runQuery();
 
 echo "<div class='container pushdown'><pre>";
 //print_r($result);
@@ -46,21 +49,22 @@ echo "</pre></div>";
 
   <div class="container pushdown">
 
-    <form class="form-group">
+    <form class="form-group" action="" method="get">
       <fieldset>
         <div class="form-inline">
           <div class="form-group">
-            <button id="search" name="search" class="btn btn-default">Search</button>
+            <button id="search" name="s" class="btn btn-default" value="1">Search</button>
           </div>
 
           <div class="form-group">
-            <input id="textinput" name="textinput" type="text" placeholder="Search Clubs" class="form-control input-md">
+            <input id="textsearch" name="ts" type="text" placeholder="Search Clubs" value="<?= isset($_GET['ts']) ? $_GET['ts'] : "" ?>" class="form-control input-md">
           </div>
 
           <div class="form-group">
-            <select id="selectbasic" name="selectbasic" class="form-control scrollable-dropdown">
-              <option value="1">Option one</option>
-              <option value="2">Option two</option>
+            <select id="genre" name="g" class="form-control scrollable-dropdown">
+              <option value="0">Genre</option>
+              <option value="0"></option>
+              <?= $genreQuery->generateList() ?>
             </select>
           </div>
         </div>
@@ -75,7 +79,7 @@ echo "</pre></div>";
       <th>Club Name</th>
       <th>Description</th>
       </thead>
-      <?php foreach ($result as $thing) { ?>
+      <?php foreach ($clubsResult as $thing) { ?>
         <tr>
           <td class="col-md-3"><img src="<?= $thing['banner'] ?>" class="img-responsive"/></td>
           <td class="col-md-3"><?= $thing['clubName'] ?></td>
@@ -94,18 +98,18 @@ echo "</pre></div>";
           </a>
         </li>
         <li>
-          <a href="<?= $query->getPaginationPrevious("clubs.php") ?>" aria-label="Previous" title="Previous">
+          <a href="<?= $clubsQuery->getPaginationPrevious("clubs.php") ?>" aria-label="Previous" title="Previous">
             <span aria-hidden="true">&laquo;</span>
           </a>
         </li>
-        <?= $query->generatePaginationLinks("clubs.php") ?>
+        <?= $clubsQuery->generatePaginationLinks("clubs.php") ?>
         <li>
-          <a href="<?= $query->getPaginationNext("clubs.php") ?>" aria-label="Next" title="Next">
+          <a href="<?= $clubsQuery->getPaginationNext("clubs.php") ?>" aria-label="Next" title="Next">
             <span aria-hidden="true">&raquo;</span>
           </a>
         </li>
         <li>
-          <a href="<?= $query->getPaginationLast("clubs.php") ?>" aria-label="Next" title="Last">
+          <a href="<?= $clubsQuery->getPaginationLast("clubs.php") ?>" aria-label="Next" title="Last">
             <span aria-hidden="true">&raquo;</span>
           </a>
         </li>

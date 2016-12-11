@@ -60,6 +60,14 @@ class query {
   }
 
   /**
+   * Get the current set query
+   * @return string query
+   */
+  public function getQuery() {
+    return $this->query;
+  }
+
+  /**
    * Set database handle
    * @param db $db database handle
    */

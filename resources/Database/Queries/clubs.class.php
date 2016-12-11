@@ -21,11 +21,30 @@ class clubs extends \Database\query {
 
     $startFrom = ($this->getCurrentPage() - 1) * $this->resultsPerPage;
 
+    $extra = "";
+    //if genreID is set
+    if (isset($_GET['g']) && is_numeric($_GET['g']) && intval($_GET['g']) != 0) {
+      $extra =  "WHERE genreID = :genre";
+      $this->setParameters([":genre" => intval($_GET['g'])]);
+    }
+
+    //if a text search is set
+    if (isset($_GET['ts']) && strlen($_GET['ts']) > 0) {
+      $_GET['ts'] = filter_var($_GET['ts'], FILTER_SANITIZE_STRING);
+      $extra .= "\n AND clubName = :name";
+      $arr = $this->getParameters();
+      $arr[":name"] = $_GET['ts'];
+      $this->setParameters($arr);
+    }
+
     $this->setQuery("
       SELECT * FROM club
+      $extra
       ORDER BY clubName ASC
       LIMIT $startFrom, $this->resultsPerPage
     ");
+
+    echo $this->getQuery();
   }
 
   public function easyRun() {
