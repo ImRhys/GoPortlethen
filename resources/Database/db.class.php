@@ -42,7 +42,7 @@ class db {
     }
 
     //If we pass a database name use that, else use whatever Azure gives us
-    if (!isset($dbname)) {
+    if ($dbname !== "") {
       $adbname = $dbname;
     }
 
