@@ -28,10 +28,12 @@ class clubs extends \Database\query {
       $this->setParameters([":genre" => intval($_GET['g'])]);
     }
 
+    $extra = strlen($extra) > 0 ? "\nAND" : "WHERE ";
+
     //if a text search is set
     if (isset($_GET['ts']) && strlen($_GET['ts']) > 0) {
       $_GET['ts'] = filter_var($_GET['ts'], FILTER_SANITIZE_STRING);
-      $extra .= "\n AND clubName = :name";
+      $extra .= "clubName = :name";
       $arr = $this->getParameters();
       $arr[":name"] = $_GET['ts'];
       $this->setParameters($arr);
