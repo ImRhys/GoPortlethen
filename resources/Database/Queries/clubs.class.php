@@ -28,15 +28,6 @@ class clubs extends \Database\query {
     ");
   }
 
-  /**
-   * @Override
-   * Excute the SQL query
-   */
-  public function runQuery() {
-    parent::runQuery(); //Call the superfunction
-    $this->totalPages = ceil($this->stmt->rowCount() / $this->resultsPerPage);
-  }
-
   public function easyRun() {
     //Read the get page var
     if (isset($_GET["page"])) {
@@ -50,6 +41,12 @@ class clubs extends \Database\query {
       die("Invalid page selection.");
     }
 
+    //Get the number of pages
+    $this->setQuery("SELECT COUNT(*) FROM club");
+    $this->runQuery();
+    $this->totalPages = ceil(intval($this->getResult()[0]["COUNT(*)"]) / $this->resultsPerPage); //Very crude way, but it works
+
+    //Set out main query and run
     $this->setPQuery($page);
     $this->runQuery();
   }
@@ -84,5 +81,18 @@ class clubs extends \Database\query {
    */
   public function getTotalPages() {
     return $this->totalPages;
+  }
+
+  /**
+   * Generate the li link tags for pagination
+   * @param $filename PHP filename that the link will be based off of
+   * @return string li link tags
+   */
+  public function generatePaginationLinks($filename) {
+    $out = "";
+    for ($i = 0; $i < $this->totalPages; $i++) {
+      $out .= '<li><a href="' . $filename . '?page=' . ($i + 1) . '">' . ($i + 1) . '</a></li>';
+    }
+    return $out;
   }
 }

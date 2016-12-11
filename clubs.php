@@ -12,11 +12,11 @@ $page->echoHeader();
 
 $query = new \Database\Queries\clubs($db);
 $query->easyRun();
-$query = $query->getResult();
+$result = $query->getResult();
 
-echo "<div class='container pushdown'><pre>";
-print_r($query);
-echo "</pre></div>";
+//echo "<div class='container pushdown'><pre>";
+//print_r($query);
+//echo "</pre></div>";
 
 ?>
 
@@ -43,13 +43,13 @@ echo "</pre></div>";
     </div>
   </nav>
 
-  <div class="container">
+  <div class="container pushdown">
     <table class="table table-bordered">
       <thead>
       <th>Club Name</th>
       <th>Description</th>
       </thead>
-      <?php foreach ($query as $thing) { ?>
+      <?php foreach ($result as $thing) { ?>
         <tr>
           <td><?= $thing['clubName'] ?></td>
           <td><?= $thing['description'] ?></td>
@@ -58,7 +58,23 @@ echo "</pre></div>";
     </table>
   </div>
 
-
+  <div class="text-center">
+    <nav aria-label="Page navigation">
+      <ul class="pagination">
+        <li>
+          <a href="#" aria-label="Previous">
+            <span aria-hidden="true">&laquo;</span>
+          </a>
+        </li>
+        <?= $query->generatePaginationLinks("clubs.php") ?>
+        <li>
+          <a href="#" aria-label="Next">
+            <span aria-hidden="true">&raquo;</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
 <?php
 $page->addFooterJS("jquery-3.1.1.min.js");
 $page->addFooterJS("bootstrap.min.js");

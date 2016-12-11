@@ -1,3 +1,8 @@
 .pushdown {
     margin-top: 70px;
 }
+
+.col-centered{
+    float: none;
+    margin: 0 auto;
+}
