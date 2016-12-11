@@ -12,6 +12,7 @@ $db = new \Database\db();
 
 $q = new \Database\query($db);
 $q->setQuery("show tables");
-print_r($q->getResult());
+$q->runQuery();
+print_r($q);
 
 $page = new \Page\page();
