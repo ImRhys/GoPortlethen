@@ -50,54 +50,18 @@
                                     <li class="active">
                                         <a href="index.php">Home version 1</a>
                                     </li>
-                                    <li>
-                                        <a href="#">Home version 2</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Home version 3</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">One page version 1</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">One page version 2</a>
-                                    </li>
                                 </ul>
                             </div>
                         </li>
 
                         <li class="drop">
                             <a href="#">
-                                Components
+                                Health
                             </a>
                             <div class="dropdown">
                                 <ul>
                                     <li>
                                         <a href="#">Forms</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Buttons</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Tables</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Modals</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Tabs</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Paginations</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Panels</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Alerts</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Progress bars</a>
                                     </li>
                                 </ul>
                             </div>
@@ -105,36 +69,12 @@
                         
                         <li class="drop">
                             <a href="#">
-                                Pages
+                                Clubs
                             </a>
                             <div class="dropdown">
                                 <ul>
                                     <li>
                                         <a href="#">Login</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Register</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Gallery grid</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Gallery detail</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">About</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">404 page</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Faq</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Terms and conditions</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Contact</a>
                                     </li>
                                 </ul>
                             </div>
@@ -180,26 +120,29 @@
         <!-- Main content / START -->
         <div id="content">
 
+            <div class="lg-block headline">
 
-            <section id="portfolio">
-                <div class="container">
+                <section id="portfolio">
+                    <div class="container">
 
-                    <!-- About GoPortlethen / START -->
-                    <div class="lg-block text-center">
+                        <!-- About GoPortlethen / START -->
+                        <div class="lg-block text-center">
 
-                        <div class="title-big">
-                            <h1>About GoPortlethen Initiative</h1>
-                        </div>
+                            <div class="title-big">
+                                <h1>About GoPortlethen Initiative</h1>
+                            </div>
 
-                        <div class="description">
-                            Facts about Portlethen Obescity here. All about clubs, groups and places to visit. Activity is key. Blah blah blah. Scrappy doo.
-                        </div>
+                            <div class="description">
+                                Facts about Portlethen Obescity here. All about clubs, groups and places to visit. Activity is key. Blah blah blah. Scrappy doo.
+                            </div>
 
-                    </div><!-- About GoPortlethen / END -->
+                        </div><!-- About GoPortlethen / END -->
 
-                </div><!-- Container / END -->
+                    </div><!-- Container / END -->
 
-            </section>
+                </section>
+
+            </div>
 
             <section id="testimonials">
                 <div class="container">
