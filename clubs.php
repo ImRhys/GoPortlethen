@@ -15,6 +15,9 @@ $page->echoHeader();
 //print_r($_GET);
 //echo "</pre></div>";
 
+$genreQuery = new \Database\Queries\genre($db);
+$genreQuery->runQuery();
+
 ?>
 
   <nav class="navbar navbar-inverse navbar-fixed-top">
@@ -31,9 +34,9 @@ $page->echoHeader();
       </div>
       <div id="navbar" class="collapse navbar-collapse">
         <ul class="nav navbar-nav">
-          <li class="active"><a href="#">Home</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#contact">Contact</a></li>
+          <li><a href="index.php">Home</a></li>
+          <li class="active"><a href="clubs.php">Clubs</a></li>
+          <li><a href="#">Health and Wellbeing</a></li>
         </ul>
       </div>
       <!--/.nav-collapse -->
@@ -48,15 +51,22 @@ $page->echoHeader();
     <table class="table table-bordered">
       <?php foreach ($clubResult as $thing) { ?>
         <tr>
-          <td><img src="<?= $thing['banner'] ?>" class="img-responsive"/></td>
+          <td colspan="2"><img src="<?= $thing['banner'] ?>" class="img-responsive"/></td>
         </tr>
         <tr>
+          <td class="col-md-2 text-right"><b>Club Name</b></td>
           <td><?= $thing['clubName'] ?></td>
         </tr>
         <tr>
+          <td class="col-md-2 text-right"><b>Description</b></td>
           <td><?= $thing['description'] ?></td>
         </tr>
         <tr>
+          <td class="col-md-2 text-right"><b>Genre</b></td>
+          <td><?= $genreQuery->getResult()[$thing['genreID']]['name'] ?></td>
+        </tr>
+        <tr>
+          <td class="col-md-2 text-right"><b>Map</b></td>
           <td>MAPPY MAP MAP</td>
         </tr>
       <?php } ?>
@@ -77,9 +87,6 @@ $page->echoHeader();
   $clubsQuery = new \Database\Queries\clubs($db);
   $clubsQuery->easyRun();
   $clubsResult = $clubsQuery->getResult();
-
-  $genreQuery = new \Database\Queries\genre($db);
-  $genreQuery->runQuery();
   ?>
 
   <div class="container pushdown">
