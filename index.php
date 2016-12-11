@@ -323,7 +323,7 @@
                                         <div class="col-xs-12 col-sm-6 col-md-4 testimonial">
 
                                             <div class="comment">
-                                                Blah
+                                                Blah 2
                                             </div>
 
                                             <div class="person">
@@ -344,7 +344,7 @@
                                         <div class="col-xs-12 col-sm-12 col-md-4 testimonial">
 
                                             <div class="comment">
-                                                Blah
+                                                Blah 9
                                             </div>
 
                                             <div class="person">
