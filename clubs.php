@@ -15,7 +15,7 @@ $query->easyRun();
 $result = $query->getResult();
 
 //echo "<div class='container pushdown'><pre>";
-//print_r($query);
+//print_r($result);
 //echo "</pre></div>";
 
 ?>
@@ -46,11 +46,13 @@ $result = $query->getResult();
   <div class="container pushdown">
     <table class="table table-bordered">
       <thead>
+      <th>Banner</th>
       <th>Club Name</th>
       <th>Description</th>
       </thead>
       <?php foreach ($result as $thing) { ?>
         <tr>
+          <td class="col-md-3"><img src="<?= $thing['banner'] ?>" class="img-responsive" /></td>
           <td class="col-md-3"><?= $thing['clubName'] ?></td>
           <td><?= $thing['description'] ?></td>
         </tr>
