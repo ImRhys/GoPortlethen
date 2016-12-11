@@ -9,4 +9,9 @@ if (\Config\Config::get("displayerror")) {
 }
 
 $db = new \Database\db();
+
+$q = new \Database\query($db);
+$q->setQuery("show tables");
+print_r($q->getResult());
+
 $page = new \Page\page();
