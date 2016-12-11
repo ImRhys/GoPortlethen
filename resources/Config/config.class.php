@@ -6,7 +6,7 @@ namespace Config;
 class Config {
   private static $configarr = array(
     "sitename" => "GoPortlethen",
-    "debug" => true,
+    "debug" => false,
     "dbname" => "", //Set in db.class.php
   );
 

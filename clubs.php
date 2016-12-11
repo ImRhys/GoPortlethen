@@ -60,7 +60,7 @@ echo "</pre></div>";
 
 
 <?php
-$page->addFooterJS("jquery.3.1.1.min.js");
+$page->addFooterJS("jquery-3.1.1.min.js");
 $page->addFooterJS("bootstrap.min.js");
 $page->renderFooter();
 $page->echoFooter();
