@@ -46,6 +46,8 @@ class db {
       $adbname = $dbname;
     }
 
+    echo $adbname;
+
     //Add the database name into the config array for access by other things
     Config::add("dbname", $adbname);
 
