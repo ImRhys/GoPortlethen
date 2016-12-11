@@ -77,8 +77,9 @@ class clubs extends \Database\query {
     }
 
     $this->runQuery();
-    $this->resultsNumber = ceil(intval($this->getResult()[0]["COUNT(*)"]));
-    $this->totalPages = $this->resultsNumber  / $this->resultsPerPage; //Very crude way, but it works
+    //Very crude way, but it works
+    $this->resultsNumber = intval($this->getResult()[0]["COUNT(*)"]);
+    $this->totalPages = ceil($this->resultsNumber  / $this->resultsPerPage);
 
     //Set out main query and run
     $this->setPQuery();
