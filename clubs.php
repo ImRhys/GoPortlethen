@@ -14,9 +14,10 @@ $query = new \Database\Queries\clubs($db);
 $query->easyRun();
 $result = $query->getResult();
 
-//echo "<div class='container pushdown'><pre>";
+echo "<div class='container pushdown'><pre>";
 //print_r($result);
-//echo "</pre></div>";
+print_r($_GET);
+echo "</pre></div>";
 
 ?>
 
@@ -44,6 +45,30 @@ $result = $query->getResult();
   </nav>
 
   <div class="container pushdown">
+
+    <form class="form-group">
+      <fieldset>
+        <div class="form-inline">
+          <div class="form-group">
+            <button id="search" name="search" class="btn btn-default">Search</button>
+          </div>
+
+          <div class="form-group">
+            <input id="textinput" name="textinput" type="text" placeholder="Search Clubs" class="form-control input-md">
+          </div>
+
+          <div class="form-group">
+            <select id="selectbasic" name="selectbasic" class="form-control">
+              <option value="1">Option one</option>
+              <option value="2">Option two</option>
+            </select>
+          </div>
+        </div>
+
+      </fieldset>
+    </form>
+
+
     <table class="table table-bordered">
       <thead>
       <th>Banner</th>
@@ -52,7 +77,7 @@ $result = $query->getResult();
       </thead>
       <?php foreach ($result as $thing) { ?>
         <tr>
-          <td class="col-md-3"><img src="<?= $thing['banner'] ?>" class="img-responsive" /></td>
+          <td class="col-md-3"><img src="<?= $thing['banner'] ?>" class="img-responsive"/></td>
           <td class="col-md-3"><?= $thing['clubName'] ?></td>
           <td><?= $thing['description'] ?></td>
         </tr>
@@ -64,23 +89,23 @@ $result = $query->getResult();
     <nav aria-label="Page navigation">
       <ul class="pagination">
         <li>
-          <a href="clubs.php?page=1" aria-label="Previous" title="First">
+          <a href="clubs.php<?= \helper\url::buildMissingGets("page", 1) ?>" aria-label="Previous" title="First">
             <span aria-hidden="true">&laquo;</span>
           </a>
         </li>
         <li>
-          <a href="clubs.php?page=<?= $query->getPaginationPrevious() ?>" aria-label="Previous" title="Previous">
+          <a href="<?= $query->getPaginationPrevious("clubs.php") ?>" aria-label="Previous" title="Previous">
             <span aria-hidden="true">&laquo;</span>
           </a>
         </li>
         <?= $query->generatePaginationLinks("clubs.php") ?>
         <li>
-          <a href="clubs.php?page=<?= $query->getPaginationNext() ?>" aria-label="Next" title="Next">
+          <a href="<?= $query->getPaginationNext("clubs.php") ?>" aria-label="Next" title="Next">
             <span aria-hidden="true">&raquo;</span>
           </a>
         </li>
         <li>
-          <a href="clubs.php?page=<?= $query->getPaginationLast() ?>" aria-label="Next" title="Last">
+          <a href="<?= $query->getPaginationLast("clubs.php") ?>" aria-label="Next" title="Last">
             <span aria-hidden="true">&raquo;</span>
           </a>
         </li>

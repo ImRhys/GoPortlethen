@@ -88,7 +88,7 @@ class clubs extends \Database\query {
 
   /**
    * Generate the li link tags for pagination
-   * @param $filename PHP filename that the link will be based off of
+   * @param string $filename PHP filename that the link will be based off of
    * @return string li link tags
    */
   public function generatePaginationLinks($filename) {
@@ -125,32 +125,35 @@ class clubs extends \Database\query {
 
     //Build our li link tags
     for ($i = $start; $i < $end; $i++) {
-      $out .= '<li ' . (($i + 1) == $this->currentPage ? ' class="active"' : '') . '><a href="' . $filename . '?page=' . ($i + 1) . '">' . ($i + 1) . '</a></li>';
+      $out .= '<li ' . (($i + 1) == $this->currentPage ? ' class="active"' : '') . '><a href="' . $filename . \Helper\url::buildMissingGets("page",  ($i + 1)) . '">' . ($i + 1) . '</a></li>';
     }
     return $out;
   }
 
   /**
    * Get the previous page number
+   * @param string $pname page filename
    * @return int previous page number
    */
-  public function getPaginationPrevious() {
-    return ($this->currentPage < 2 ? 1 : $this->currentPage - 1);
+  public function getPaginationPrevious($pname) {
+    return $pname . \Helper\url::buildMissingGets("page", ($this->currentPage < 2 ? 1 : $this->currentPage - 1));
   }
 
   /**
    * Get the next page number
+   * @param string $pname page filename
    * @return int next page number
    */
-  public function getPaginationNext() {
-    return ($this->currentPage > ($this->totalPages - 1) ? $this->totalPages : $this->currentPage + 1);
+  public function getPaginationNext($pname) {
+    return $pname . \Helper\url::buildMissingGets("page", ($this->currentPage > ($this->totalPages - 1) ? $this->totalPages : $this->currentPage + 1));
   }
 
   /**
    * Get the last page number
+   * @param string $pname page filename
    * @return int last page number
    */
-  public function getPaginationLast() {
-    return $this->getTotalPages();
+  public function getPaginationLast($pname) {
+    return $pname . \Helper\url::buildMissingGets("page", $this->getTotalPages());
   }
 }
