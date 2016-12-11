@@ -344,7 +344,7 @@
                                         <div class="col-xs-12 col-sm-12 col-md-4 testimonial">
 
                                             <div class="comment">
-                                                Blah 9
+                                                Blah 9 THIS IS A CHANGE
                                             </div>
 
                                             <div class="person">
