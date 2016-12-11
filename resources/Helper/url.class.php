@@ -15,7 +15,9 @@ class url {
       $out .= $key . "=" . htmlspecialchars($value) . "&";
     }
 
-    $out = substr($out, -1) === "&" ? substr($out, 0, -1) : $out;
+    $out = substr($out, -1) === "&" ? substr($out, 0, -1) : $out; //chop off the last ampersand
+
+    $_GET = $tmp;
 
     return "?" . $out;
   }

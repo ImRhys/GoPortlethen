@@ -58,7 +58,7 @@ echo "</pre></div>";
           </div>
 
           <div class="form-group">
-            <select id="selectbasic" name="selectbasic" class="form-control">
+            <select id="selectbasic" name="selectbasic" class="form-control scrollable-dropdown">
               <option value="1">Option one</option>
               <option value="2">Option two</option>
             </select>
