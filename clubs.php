@@ -2,9 +2,6 @@
 
 require 'global.php';
 
-//$page->setPageTitle("Clubs");
-//$page->setPageDescription("lots of clubs.");
-//$page->setPageKeywords("lots, of, clubs");
 $page->setAllMeta("Clubs", "clubs of clubness", "lots,of,clubs");
 
 $page->addCSS("bootstrap.css");
@@ -14,7 +11,7 @@ $page->renderHeader();
 $page->echoHeader();
 
 $query = new \Database\Queries\clubs($db);
-$query->runQuery();
+$query->easyRun();
 $query = $query->getResult();
 
 echo "<div class='container pushdown'><pre>";
@@ -47,11 +44,18 @@ echo "</pre></div>";
   </nav>
 
   <div class="container">
-    <?php foreach($query as $thing) { ?>
-      <div class="row">
-        <?= $thing['clubName'] ?>
-      </div>
-    <?php } ?>
+    <table class="table table-bordered">
+      <thead>
+      <th>Club Name</th>
+      <th>Description</th>
+      </thead>
+      <?php foreach ($query as $thing) { ?>
+        <tr>
+          <td><?= $thing['clubName'] ?></td>
+          <td><?= $thing['description'] ?></td>
+        </tr>
+      <?php } ?>
+    </table>
   </div>
 
 

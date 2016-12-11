@@ -11,6 +11,8 @@ class query {
   private $db;
   private $result;
 
+  public $stmt;
+
   public function __construct(db $db) {
     $this->setDBHandle($db);
   }
@@ -22,6 +24,7 @@ class query {
     $stmt = $this->db->prepare($this->query);
     $stmt->execute($this->parameters);
     $this->result = $stmt->fetchall();
+    $this->stmt = $stmt;
   }
 
   /**
