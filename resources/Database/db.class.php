@@ -11,7 +11,7 @@ class db {
   public $db;
   public $debug;
 
-  public function __construct($dbname = "") {
+  function __construct($dbname = "") {
 
     $this->debug = Config::get("debug");
     unset($config);

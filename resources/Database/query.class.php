@@ -13,7 +13,7 @@ class query {
 
   public $stmt;
 
-  public function __construct(db $db) {
+  function __construct(db $db) {
     $this->setDBHandle($db);
   }
 
