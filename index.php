@@ -76,28 +76,28 @@
                                         <a href="#">Forms</a>
                                     </li>
                                     <li>
-                                        <a href="#/components/buttons.html">Buttons</a>
+                                        <a href="#">Buttons</a>
                                     </li>
                                     <li>
-                                        <a href="#/components/tables.html">Tables</a>
+                                        <a href="#">Tables</a>
                                     </li>
                                     <li>
-                                        <a href="#/components/modals.html">Modals</a>
+                                        <a href="#">Modals</a>
                                     </li>
                                     <li>
-                                        <a href="#/components/tabs.html">Tabs</a>
+                                        <a href="#">Tabs</a>
                                     </li>
                                     <li>
-                                        <a href="#/components/paginations.html">Paginations</a>
+                                        <a href="#">Paginations</a>
                                     </li>
                                     <li>
-                                        <a href="#/components/panels.html">Panels</a>
+                                        <a href="#">Panels</a>
                                     </li>
                                     <li>
-                                        <a href="#/components/alerts.html">Alerts</a>
+                                        <a href="#">Alerts</a>
                                     </li>
                                     <li>
-                                        <a href="#/components/progress-bars.html">Progress bars</a>
+                                        <a href="#">Progress bars</a>
                                     </li>
                                 </ul>
                             </div>
@@ -110,31 +110,31 @@
                             <div class="dropdown">
                                 <ul>
                                     <li>
-                                        <a href="#/pages/login.html">Login</a>
+                                        <a href="#">Login</a>
                                     </li>
                                     <li>
-                                        <a href="#/pages/register.html">Register</a>
+                                        <a href="#">Register</a>
                                     </li>
                                     <li>
-                                        <a href="#/pages/gallery-grid.html">Gallery grid</a>
+                                        <a href="#">Gallery grid</a>
                                     </li>
                                     <li>
-                                        <a href="#/pages/gallery-detail.html">Gallery detail</a>
+                                        <a href="#">Gallery detail</a>
                                     </li>
                                     <li>
-                                        <a href="#/pages/about.html">About</a>
+                                        <a href="#">About</a>
                                     </li>
                                     <li>
-                                        <a href="#/pages/404.html">404 page</a>
+                                        <a href="#">404 page</a>
                                     </li>
                                     <li>
-                                        <a href="#/pages/faq.html">Faq</a>
+                                        <a href="#">Faq</a>
                                     </li>
                                     <li>
-                                        <a href="#/pages/terms.html">Terms and conditions</a>
+                                        <a href="#">Terms and conditions</a>
                                     </li>
                                     <li>
-                                        <a href="#/pages/contact.html">Contact</a>
+                                        <a href="#">Contact</a>
                                     </li>
                                 </ul>
                             </div>
@@ -197,7 +197,7 @@
 
                     </div><!-- About GoPortlethen / END -->
 
-                </div><!-- Main Content Container / END -->
+                </div><!-- Container / END -->
 
             </section>
 
