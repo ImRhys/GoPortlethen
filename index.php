@@ -101,6 +101,8 @@
                         </div>
 
                         <div class="description">
+                            Scooby dooby doo, where are you? We need some help from you now! Scooby dooby doo, where are you? We need some help from you now! Scooby dooby doo, where are you? We need some help from you now!
+                            Scooby dooby doo, where are you? We need some help from you now! Scooby dooby doo, where are you? We need some help from you now! Scooby dooby doo, where are you? We need some help from you now!
                             Scooby dooby doo, where are you? We need some help from you now!
                         </div>
 
