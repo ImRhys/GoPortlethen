@@ -8,6 +8,7 @@ class clubs extends \Database\query {
   private $resultsPerPage = 5;
   private $totalPages = 0;
   private $currentPage = 1;
+  private $resultsNumber = 0;
 
   function __construct(\Database\db $db) {
     $this->setDBHandle($db);
@@ -76,7 +77,8 @@ class clubs extends \Database\query {
     }
 
     $this->runQuery();
-    $this->totalPages = ceil(intval($this->getResult()[0]["COUNT(*)"]) / $this->resultsPerPage); //Very crude way, but it works
+    $this->resultsNumber = ceil(intval($this->getResult()[0]["COUNT(*)"]));
+    $this->totalPages = $this->resultsNumber  / $this->resultsPerPage; //Very crude way, but it works
 
     //Set out main query and run
     $this->setPQuery();
@@ -184,5 +186,13 @@ class clubs extends \Database\query {
    */
   public function getPaginationLast($pname) {
     return $pname . \Helper\url::buildMissingGets("page", $this->getTotalPages());
+  }
+
+  /**
+   * Get the number of results from the last query
+   * @return int number of results
+   */
+  public function getNumberOfResults() {
+    return $this->resultsNumber;
   }
 }

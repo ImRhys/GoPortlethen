@@ -63,7 +63,7 @@ $genreQuery->runQuery();
         </tr>
         <tr>
           <td class="col-md-2 text-right"><b>Genre</b></td>
-          <td><?= $genreQuery->getResult()[$thing['genreID']]['name'] ?></td>
+          <td><?= $genreQuery->getGenreNameByID($thing['genreID']) ?></td>
         </tr>
         <tr>
           <td class="col-md-2 text-right"><b>Map</b></td>
@@ -115,50 +115,56 @@ $genreQuery->runQuery();
     </form>
 
 
-    <table class="table table-bordered">
-      <thead>
-      <th>Banner</th>
-      <th>Club Name</th>
-      <th>Description</th>
-      </thead>
-      <?php foreach ($clubsResult as $thing) { ?>
-        <tr>
-          <td class="col-md-3"><a href="clubs.php?club=<?= $thing['clubID'] ?>"><img src="<?= $thing['banner'] ?>"
-                                                                                     class="img-responsive"/></a></td>
-          <td class="col-md-3"><a href="clubs.php?club=<?= $thing['clubID'] ?>"><?= $thing['clubName'] ?></a></td>
-          <td><?= $thing['description'] ?></td>
-        </tr>
-      <?php } ?>
-    </table>
+    <?php if ($clubsQuery->getNumberOfResults() > 0) { ?>
+      <table class="table table-bordered">
+        <thead>
+        <th>Banner</th>
+        <th>Club Name</th>
+        <th>Description</th>
+        </thead>
+        <?php foreach ($clubsResult as $thing) { ?>
+          <tr>
+            <td class="col-md-3"><a href="clubs.php?club=<?= $thing['clubID'] ?>"><img src="<?= $thing['banner'] ?>"
+                                                                                       class="img-responsive"/></a></td>
+            <td class="col-md-3"><a href="clubs.php?club=<?= $thing['clubID'] ?>"><?= $thing['clubName'] ?></a></td>
+            <td><?= $thing['description'] ?></td>
+          </tr>
+        <?php } ?>
+      </table>
+    <?php } else { ?>
+      <div class="alert alert-warning" role="alert">No results found.</div>
+    <?php } ?>
   </div>
 
-  <div class="text-center">
-    <nav aria-label="Page navigation">
-      <ul class="pagination">
-        <li>
-          <a href="clubs.php<?= \helper\url::buildMissingGets("page", 1) ?>" aria-label="Previous" title="First">
-            <span aria-hidden="true">&laquo;</span>
-          </a>
-        </li>
-        <li>
-          <a href="<?= $clubsQuery->getPaginationPrevious("clubs.php") ?>" aria-label="Previous" title="Previous">
-            <span aria-hidden="true">&laquo;</span>
-          </a>
-        </li>
-        <?= $clubsQuery->generatePaginationLinks("clubs.php") ?>
-        <li>
-          <a href="<?= $clubsQuery->getPaginationNext("clubs.php") ?>" aria-label="Next" title="Next">
-            <span aria-hidden="true">&raquo;</span>
-          </a>
-        </li>
-        <li>
-          <a href="<?= $clubsQuery->getPaginationLast("clubs.php") ?>" aria-label="Next" title="Last">
-            <span aria-hidden="true">&raquo;</span>
-          </a>
-        </li>
-      </ul>
-    </nav>
-  </div>
+  <?php if ($clubsQuery->getNumberOfResults() > 0) { ?>
+    <div class="text-center">
+      <nav aria-label="Page navigation">
+        <ul class="pagination">
+          <li>
+            <a href="clubs.php<?= \helper\url::buildMissingGets("page", 1) ?>" aria-label="Previous" title="First">
+              <span aria-hidden="true">&laquo;</span>
+            </a>
+          </li>
+          <li>
+            <a href="<?= $clubsQuery->getPaginationPrevious("clubs.php") ?>" aria-label="Previous" title="Previous">
+              <span aria-hidden="true">&laquo;</span>
+            </a>
+          </li>
+          <?= $clubsQuery->generatePaginationLinks("clubs.php") ?>
+          <li>
+            <a href="<?= $clubsQuery->getPaginationNext("clubs.php") ?>" aria-label="Next" title="Next">
+              <span aria-hidden="true">&raquo;</span>
+            </a>
+          </li>
+          <li>
+            <a href="<?= $clubsQuery->getPaginationLast("clubs.php") ?>" aria-label="Next" title="Last">
+              <span aria-hidden="true">&raquo;</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  <?php } ?>
 <?php } ?>
 <?php
 $page->addFooterJS("jquery-3.1.1.min.js");

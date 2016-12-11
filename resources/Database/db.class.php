@@ -19,7 +19,7 @@ class db {
     if ($this->debug) {
       //If we're using a local database in debug mode
       $ahost = "127.0.0.1";
-      $adbname = "test";
+      $adbname = "test2";
       $auser = "root";
       $apass = "";
 
