@@ -74,4 +74,17 @@ class query {
   public function setDBHandle(db $db) {
     $this->db = $db->getHandle();
   }
+
+  /**
+   * Perform a quick one line query
+   * @param string $query Query string
+   * @param array $parameters Parameter Array
+   * @return array result
+   */
+  public function quickQuery($query, $parameters) {
+    $this->setQuery($query);
+    $this->setParameters($parameters);
+    $this->runQuery();
+    return $this->getResult();
+  }
 }

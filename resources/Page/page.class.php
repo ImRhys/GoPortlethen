@@ -12,6 +12,7 @@ class page {
   private $footerHTML = "";
   private $JSHead = "";
   private $JSFoot = "";
+  private $JSFootRaw = "";
   private $CSS = "";
 
   private $title = "";
@@ -63,6 +64,10 @@ class page {
    */
   public function addFooterJS($name, $jsDir = true) {
     $this->JSFoot .= $this->toJSTag($name, $jsDir);
+  }
+
+  public function addFooterRawJS($script) {
+    $this->JSFootRaw .= "<script>" . $script . "</script>";
   }
 
   /**
@@ -172,6 +177,7 @@ class page {
     $this->footer =
       $this->footerHTML .
       $this->JSFoot .
+      $this->JSFootRaw .
       '</body>' .
       '</html>';
   }

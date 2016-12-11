@@ -10,17 +10,10 @@ $page->addCSS("extra.css");
 $page->renderHeader();
 $page->echoHeader();
 
-$clubsQuery = new \Database\Queries\clubs($db);
-$clubsQuery->easyRun();
-$clubsResult = $clubsQuery->getResult();
-
-$genreQuery = new \Database\Queries\genre($db);
-$genreQuery->runQuery();
-
-echo "<div class='container pushdown'><pre>";
+//echo "<div class='container pushdown'><pre>";
 //print_r($result);
-print_r($_GET);
-echo "</pre></div>";
+//print_r($_GET);
+//echo "</pre></div>";
 
 ?>
 
@@ -47,8 +40,49 @@ echo "</pre></div>";
     </div>
   </nav>
 
+<?php if (isset($_GET['club']) && is_numeric($_GET['club'])) {
+  $clubQuery = new \Database\query($db);
+  $clubResult = $clubQuery->quickQuery("SELECT * FROM club WHERE clubID = :id", ["id" => $_GET['club']]);
+  ?>
   <div class="container pushdown">
+    <table class="table table-bordered">
+      <?php foreach ($clubResult as $thing) { ?>
+        <tr>
+          <td><img src="<?= $thing['banner'] ?>" class="img-responsive"/></td>
+        </tr>
+        <tr>
+          <td><?= $thing['clubName'] ?></td>
+        </tr>
+        <tr>
+          <td><?= $thing['description'] ?></td>
+        </tr>
+        <tr>
+          <td>MAPPY MAP MAP</td>
+        </tr>
+      <?php } ?>
+    </table>
 
+    <button id="back" name="back" class="btn btn-default">Back</button>
+    <?php $page->addFooterRawJS("
+    $(document).ready(function(){
+        $('#back').click(function(){
+          parent.history.back();
+          return false;
+        });
+      });
+    ") ?>
+  </div>
+
+<?php } else {
+  $clubsQuery = new \Database\Queries\clubs($db);
+  $clubsQuery->easyRun();
+  $clubsResult = $clubsQuery->getResult();
+
+  $genreQuery = new \Database\Queries\genre($db);
+  $genreQuery->runQuery();
+  ?>
+
+  <div class="container pushdown">
     <form class="form-group" action="" method="get">
       <fieldset>
         <div class="form-inline">
@@ -57,7 +91,8 @@ echo "</pre></div>";
           </div>
 
           <div class="form-group">
-            <input id="textsearch" name="ts" type="text" placeholder="Search Clubs" value="<?= isset($_GET['ts']) ? $_GET['ts'] : "" ?>" class="form-control input-md">
+            <input id="textsearch" name="ts" type="text" placeholder="Search Clubs"
+                   value="<?= isset($_GET['ts']) ? $_GET['ts'] : "" ?>" class="form-control input-md">
           </div>
 
           <div class="form-group">
@@ -81,8 +116,9 @@ echo "</pre></div>";
       </thead>
       <?php foreach ($clubsResult as $thing) { ?>
         <tr>
-          <td class="col-md-3"><img src="<?= $thing['banner'] ?>" class="img-responsive"/></td>
-          <td class="col-md-3"><?= $thing['clubName'] ?></td>
+          <td class="col-md-3"><a href="clubs.php?club=<?= $thing['clubID'] ?>"><img src="<?= $thing['banner'] ?>"
+                                                                                     class="img-responsive"/></a></td>
+          <td class="col-md-3"><a href="clubs.php?club=<?= $thing['clubID'] ?>"><?= $thing['clubName'] ?></a></td>
           <td><?= $thing['description'] ?></td>
         </tr>
       <?php } ?>
@@ -116,6 +152,7 @@ echo "</pre></div>";
       </ul>
     </nav>
   </div>
+<?php } ?>
 <?php
 $page->addFooterJS("jquery-3.1.1.min.js");
 $page->addFooterJS("bootstrap.min.js");
