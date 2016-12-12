@@ -2,6 +2,7 @@
 
 require 'global.php';
 $page = new \Page\admin();
+$page->setFilename("member.php");
 $page->startSession();
 $page->checkLogin();
 
@@ -21,10 +22,16 @@ $page->addCSS("extra.css");
 
 $page->renderHeader();
 $page->echoHeader();
+
+if (!isset($_GET['p'])) {
+  $_GET['p'] = "profile";
+}
+
+$p = $_GET['p'];
 ?>
 
   <!-- Navigation include -->
-<?php include 'header.php'; ?>
+<?php include 'elements/header.php'; ?>
 
   <div class="container">
     <p>Welcome back <b><?= $_SESSION['user']['displayName'] ?></b>.</p>
@@ -32,11 +39,28 @@ $page->echoHeader();
 
   <div class="container">
     <ul class="nav nav-pills col-md-12 pushdown">
-      <li role="presentation" class="active"><a href="#">Home</a></li>
-      <li role="presentation"><a href="#">Profile</a></li>
-      <li role="presentation"><a href="#">Messages</a></li>
+      <li role="presentation"><a href="<?= $page->getFilename() ?>?p=profile">Profile</a></li>
+      <li role="presentation"><a href="<?= $page->getFilename() ?>?p=users">User Manager</a></li>
+      <li role="presentation"><a href="<?= $page->getFilename() ?>?p=clubs">Clubs Editor</a></li>
+      <li role="presentation"><a href="<?= $page->getFilename() ?>?p=addnews">Add News</a></li>
     </ul>
   </div>
+
+
+<?php
+if ($p === "profile") include 'elements/memberprofile.php';
+if ($p === "eprofile") include 'elements/membereprofile.php';
+
+if ($p === "users") include 'elements/memberusers.php';
+if ($p === "euser") include 'elements/membereuser.php';
+
+if ($p === "clubs") include 'elements/memberclub.php';
+if ($p === "eclubs") include 'elements/membereclub.php';
+if ($p === "addclub") include 'elements/memberaddclub.php';
+if ($p === "addgenre") include 'elements/memberaddgenre.php';
+
+if ($p === "addnews") include 'elements/membernews.php';
+?>
 
   <!-- Footer / START -->
   <footer class="footer">

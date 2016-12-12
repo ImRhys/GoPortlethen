@@ -12,3 +12,7 @@
     max-height: 200px;
     overflow-x: hidden;
 }
+
+.img-adjust {
+    height: 70px;
+}

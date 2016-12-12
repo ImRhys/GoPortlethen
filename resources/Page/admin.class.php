@@ -33,4 +33,22 @@ class admin extends page {
   public function getFilename() {
     return $this->filen;
   }
+
+  /**
+   * Get the form starting tag
+   * @param string $location filename the form posts to
+   * @param string $id set form ID
+   * @return string form markup
+   */
+  public function startForm($location, $id = "") {
+    return '<form ' . ($id !== "" ? 'id="' . $id . '"' : "") . ' action="' . $location . '" method="post">';
+  }
+
+  /**
+   * Get the form ending tag
+   * @return string form ending tag
+   */
+  public function  endForm() {
+    return '</form>';
+  }
 }
