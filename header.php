@@ -101,7 +101,7 @@
                     <div class="dropdown">
                         <ul>
                             <li>
-                                <a href="registerfront.php">Register</a>
+                                <a href="register.php">Register</a>
                             </li>
                         </ul>
                     </div>
