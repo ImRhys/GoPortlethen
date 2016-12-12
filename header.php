@@ -59,15 +59,10 @@
                 </li>
 
                 <li class="drop">
-                    <a href="#">
+                    <a href="viewclubs.php">
                         Clubs
                     </a>
                     <div class="dropdown">
-                        <ul>
-                            <li>
-                                <a href="#">View All Clubs</a>
-                            </li>
-                        </ul>
                         <ul>
                             <li>
                                 <a href="#">Create a Club Page</a>
