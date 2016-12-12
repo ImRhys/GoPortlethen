@@ -106,7 +106,7 @@
                     <div class="dropdown">
                         <ul>
                             <li>
-                                <a href="#">Register</a>
+                                <a href="register.html">Register</a>
                             </li>
                         </ul>
                     </div>
