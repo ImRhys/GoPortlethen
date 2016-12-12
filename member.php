@@ -27,11 +27,16 @@ $page->echoHeader();
 <?php include 'header.php'; ?>
 
   <div class="container">
-    <a href="logout.php">
-      <button type="button" class="btn btn-default">Logout</button>
-    </a>
+    <p>Welcome back <b><?= $_SESSION['user']['displayName'] ?></b>.</p>
   </div>
 
+  <div class="container">
+    <ul class="nav nav-pills col-md-12 pushdown">
+      <li role="presentation" class="active"><a href="#">Home</a></li>
+      <li role="presentation"><a href="#">Profile</a></li>
+      <li role="presentation"><a href="#">Messages</a></li>
+    </ul>
+  </div>
 
   <!-- Footer / START -->
   <footer class="footer">

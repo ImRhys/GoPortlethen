@@ -5,6 +5,8 @@ namespace Page;
 
 class admin extends page {
 
+  private $filen = "";
+
   /**
    * Check login
    */
@@ -14,5 +16,21 @@ class admin extends page {
       header("Location: login.php?loginfailed=1");
       die("Access denied.");
     }
+  }
+
+  /**
+   * Set running filename, e.g index.php
+   * @param string $filen filename
+   */
+  public function setFilename($filen) {
+    $this->filen = $filen;
+  }
+
+  /**
+   * Get running filename
+   * @return string filename
+   */
+  public function getFilename() {
+    return $this->filen;
   }
 }
