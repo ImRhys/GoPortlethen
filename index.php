@@ -267,7 +267,7 @@
 
                             <div class="description sm-block">
                                 Yo 148, 3-to-the-3-to-the-6-to-the-9. Representin' the ABQ what up, bbbbbb? Leave it at the tone!
-                                This bit needed to be longer to fix the page alignment... WHAT EVEN.
+                                This bit needed to be longer to fix the page alignment... WHAT EVEN. Is this stretching any more?
                             </div>
 
                             <div class="sm-block footer-buttons">
