@@ -42,13 +42,18 @@
                     <ul class="nav navbar-nav">
                     
                         <li class="drop active">
-                            <a href="#">
+                            <a href="index.php">
                                 Home
                             </a>
                             <div class="dropdown">
                                 <ul>
-                                    <li class="active">
-                                        <a href="index.php">Home version 1</a>
+                                    <li>
+                                        <a href="#lg-block headline">About</a>
+                                    </li>
+                                </ul>
+                                <ul>
+                                    <li>
+                                        <a href="#">Contact</a>
                                     </li>
                                 </ul>
                             </div>
@@ -61,12 +66,17 @@
                             <div class="dropdown">
                                 <ul>
                                     <li>
-                                        <a href="#">Forms</a>
+                                        <a href="#">News</a>
+                                    </li>
+                                </ul>
+                                <ul>
+                                    <li>
+                                        <a href="#">Events</a>
                                     </li>
                                 </ul>
                             </div>
                         </li>
-                        
+
                         <li class="drop">
                             <a href="#">
                                 Clubs
@@ -74,7 +84,30 @@
                             <div class="dropdown">
                                 <ul>
                                     <li>
-                                        <a href="#">Login</a>
+                                        <a href="#">View All Clubs</a>
+                                    </li>
+                                </ul>
+                                <ul>
+                                    <li>
+                                        <a href="#">Create a Club Page</a>
+                                    </li>
+                                </ul>
+                                <ul>
+                                    <li>
+                                        <a href="#">Search Club Pages</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        
+                        <li class="drop">
+                            <a href="#">
+                                Login
+                            </a>
+                            <div class="dropdown">
+                                <ul>
+                                    <li>
+                                        <a href="#">Register</a>
                                     </li>
                                 </ul>
                             </div>
@@ -135,7 +168,7 @@
                             </div>
 
                             <div class="description">
-                                Facts about Portlethen Obescity here. All about clubs, groups and places to visit. Activity is key. Blah blah blah. Scrappy doo.
+                                You're all fat. Facts about Portlethen Obescity here. All about clubs, groups and places to visit. Activity is key. Blah blah blah. Scrappy doo.
                             </div>
 
                         </div><!-- About GoPortlethen / END -->
