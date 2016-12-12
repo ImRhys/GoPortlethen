@@ -9,7 +9,8 @@ $page->setPageDescription("Register");
 
 $query = new \Database\Queries\login($db);
 
-if (isset($_SESSION['user'])) {
+if ($page->isLogin()) {
+  header("Location: member.php");
   die("Already logged in.");
 }
 
