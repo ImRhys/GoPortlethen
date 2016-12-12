@@ -1,107 +1,117 @@
-<?php
+<!DOCTYPE html>
+<html lang="en-GB">
+    <head>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <title>GoPortlethen - Login</title>
+        
+        <meta name="description" content="GoPortlethen - Login"/>
+        <link rel="shortcut icon" href="#" type="image/png"/>
 
-require 'global.php';
-$page = new \Page\page();
-$page->startSession();
+        <!-- Fonts -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"/>
+        
+        <!-- Style -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" type="text/css" />
+        <link rel="stylesheet" href="../css/main.css" type="text/css" />
+        <link rel="stylesheet" href="../css/orange.css" type="text/css" />
+    </head>
 
-$submitted_username = '';
-if (!empty($_POST)) {
+    <body>
 
-  $query = new \Database\Queries\login($db);
+        <!-- Navigation include -->
+        <?php include 'header.php';?>
+        
+        <div id="content">
 
-  //check if it's an email address
-  if (strpos($_POST['username'], '@') === false) {
-    $result = $query->quickQuery("SELECT * FROM users WHERE userName = :username", ["username" => $_POST['username']]);
-  } else {
-    $result = $query->quickQuery("SELECT * FROM users WHERE email = :email", ["email" => $_POST['username']]);
-  }
+            <section id="login">
+                <div class="container">
 
-  $loginok = false;
-  if ($result) {
-    //Set a new pair from the database hash
-    $pair = new \Helper\hash();
-    $pair->setPair($result['password']);
-    $pair->splitHashSalt(); //Split the pair
+                    <div class="row">
 
-    //Generate the new hash from the passed password using the salt we just got
-    $hash = new \Helper\hash();
-    $hash->setPlain($_POST['password']);
-    $hash->setSalt($pair->getSalt());
-    $hash->genHash();
+                        <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 col-lg-4 col-lg-offset-4 md-margin-top">
 
-    //If our hash match we're good to go
-    if ($hash->getHash() === $pair->getHash()) {
-      $loginok = true;
-    }
-  }
+                            <div class="page-subheader text-center">
+                                <h1>Sign in</h1>
+                                <hr/>      
+                                <p>If you are not already a member, please sign up</p>
+                            </div>
 
-  if ($loginok) {
-    unset($result['password']); //Don't pass our hash into the session
-    $_SESSION['user'] = $result;
+                            <form action="#" method="post">
 
-    header("Location: member.php");
-    die("Redirecting to: member.php");
+                                <div class="form-group">
+                                    <div class="controls">
+                                        <input type="text" placeholder="Username" class="form-control input"/>
+                                    </div>
+                                </div>
 
-  } else {
-    $submitted_username = htmlentities($_POST['username'], ENT_QUOTES, 'UTF-8');
-    header("Location: login.php?loginfailed=1");
-  }
-}
+                                <div class="form-group">
+                                    <div class="controls">
+                                        <input type="password" placeholder="Password" class="form-control input"/>
+                                    </div>
+                                </div>
 
-if (count($_GET) == 0) {
-  $_GET['loginfailed'] = 1;
-}
+                                <div class="form-group">
+                                    <div class="controls">
+                                        <div class="checkbox">
+                                            <input name="checkbox" id="checkbox1" value="checkbox1" checked="" type="checkbox">
+                                            <label for="checkbox1">
+                                                Remember me
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
 
-if (isset($_GET['loginfailed'])) {
-  $page->setPageTitle("Login");
-  $page->setPageDescription("Login Page");
+                                <div class="form-group">
 
-  $page->addCSS("bootstrap.css");
-  $page->addCSS("extra.css");
+                                    <button class="btn btn-primary">Enter</button>
+                                    <a href="#" class="sm-margin-top pull-right">Forgot your password?</a>
 
-  $page->renderHeader();
-  $page->echoHeader();
-  ?>
+                                </div>
 
-  <div class="container">
-    <?php if ($_GET['loginfailed'] == 2) { ?>
-      <div class="alert alert-warning">You need to login before accessing this page.</div>
-    <?php } else { ?>
-      <div class='alert alert-warning'>Login failed please try again.</div>
-    <?php } ?>
-    <form class="form-horizontal" action="login.php" method="post">
-      <fieldset>
-        <legend>Login</legend>
-        <div class="form-group">
-          <label class="col-md-4 control-label" for="username">Username / Email</label>
+                                <div class="form-group">
 
-          <div class="col-md-4">
-            <input id="username" name="username" type="text" placeholder="e.g jsmith1 or johnsmith@example.com"
-                   class="form-control input-md" required="">
-          </div>
-        </div>
-        <div class="form-group">
-          <label class="col-md-4 control-label" for="password">Password</label>
+                                    <a href="#" class="btn btn-block btn-facebook btn-flat">
+                                        <i class="fa fa-facebook"></i> Sign in using Facebook
+                                    </a>
 
-          <div class="col-md-4">
-            <input id="password" name="password" type="password" placeholder="" class="form-control input-md"
-                   required="">
-          </div>
-        </div>
-        <div class='form-group'>
-          <label class='col-md-4 control-label' for='submit'></label>
+                                </div>
 
-          <div class='col-md-8'>
-            <button id='submit' type='submit' name='submit' value="Login" class='btn btn-primary'>Submit
-            </button>
-          </div>
-        </div>
-      </fieldset>
-    </form>
-  </div>
-  <?php
-  $page->addFooterJS("jquery-3.1.1.min.js");
-  $page->addFooterJS("bootstrap.min.js");
-  $page->renderFooter();
-  $page->echoFooter();
-} ?>
+                            </form>
+
+                        </div>
+
+                    </div><!-- Row / END -->
+
+                </div><!-- Container / END -->
+
+            </section>
+
+        </div><!-- Content / END -->
+    
+    
+        <!-- Footer / START -->
+        <footer class="footer">
+            <div class="container">
+                
+                <span class="copyright">
+                    Copyright 2016. All rights served.
+                </span>
+                
+                <span class="links">
+                    <a href="#">Terms of service</a>
+                    <a href="#">Privacy policy</a>
+                </span>
+                
+            </div>
+        </footer><!-- Footer / END -->
+    
+        <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+        <script src="../../Desktop/base%20template%20for%20GoPort/js/main.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    </body>
+</html>

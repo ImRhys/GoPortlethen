@@ -100,7 +100,7 @@
                 </li>
 
                 <li class="drop">
-                    <a href="#">
+                    <a href="login.php">
                         Login
                     </a>
                     <div class="dropdown">
