@@ -59,15 +59,10 @@
                 </li>
 
                 <li class="drop">
-                    <a href="#">
+                    <a href="viewclubs.php">
                         Clubs
                     </a>
                     <div class="dropdown">
-                        <ul>
-                            <li>
-                                <a href="#">View All Clubs</a>
-                            </li>
-                        </ul>
                         <ul>
                             <li>
                                 <a href="#">Create a Club Page</a>
@@ -100,13 +95,13 @@
                 </li>
 
                 <li class="drop">
-                    <a href="#">
+                    <a href="loginfront.php">
                         Login
                     </a>
                     <div class="dropdown">
                         <ul>
                             <li>
-                                <a href="#">Register</a>
+                                <a href="registerfront.php">Register</a>
                             </li>
                         </ul>
                     </div>

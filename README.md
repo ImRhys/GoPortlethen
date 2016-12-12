@@ -1,4 +1,4 @@
 # goportlethen
 GoPortlethen webpage.
 
-http://goportlethenwastaken.azurewebsites.net/
+Stop reading this. Scooby Doo.
