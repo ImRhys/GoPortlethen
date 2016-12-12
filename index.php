@@ -19,6 +19,7 @@
 
     <body>
 
+        <!-- Navigation include -->
         <?php include 'header.php';?>
         
         <!-- Headline / START -->
