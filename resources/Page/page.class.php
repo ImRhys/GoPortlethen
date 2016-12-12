@@ -214,4 +214,14 @@ class page {
     }
   }
 
+  /**
+   * Check if the user is logged in
+   * @return bool true if user is logged in, false if not
+   */
+  public function isLogin() {
+    if (isset($_SESSION['user']))
+      return true;
+    return false;
+  }
+
 }

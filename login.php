@@ -5,6 +5,12 @@ $page = new \Page\page();
 $page->startSession();
 
 $submitted_username = '';
+
+if ($page->isLogin()) {
+  header("Location: member.php");
+  die("Already logged in.");
+}
+
 if (!empty($_POST)) {
 
   $query = new \Database\Queries\login($db);
@@ -13,7 +19,7 @@ if (!empty($_POST)) {
   if (strpos($_POST['username'], '@') === false) {
     $result = $query->quickQuery("SELECT * FROM users WHERE userName = :username", [":username" => $_POST['username']]);
   } else {
-    $result = $query->quickQuery("SELECT * FROM users WHERE email = :email", [":email" => $_POST['username']]);
+    $result = $query->quickQuery("SELECT * FROM users WHERE emailAddress = :email", [":email" => $_POST['username']]);
   }
 
   $loginok = false;
@@ -44,11 +50,11 @@ if (!empty($_POST)) {
 
   } else {
     $submitted_username = htmlentities($_POST['username'], ENT_QUOTES, 'UTF-8');
-    header("Location: login.php?loginfailed=1");
+    header("Location: login.php?loginfailed=2");
   }
 }
 
-if (count($_GET) == 0) {
+if (!isset($_GET['loginfailed'])) {
   $_GET['loginfailed'] = 0;
 }
 
@@ -96,18 +102,24 @@ if (isset($_GET['loginfailed'])) {
               <div class='alert alert-warning'>Login failed please try again.</div>
             <?php } ?>
 
+            <?php if (isset($_GET['registered']) && $_GET['registered'] == 1) { ?>
+              <div class='alert alert-success'>Thank you for registering, please login.</div>
+            <?php } ?>
+
 
             <form action="login.php" method="post">
               <fieldset>
                 <div class="form-group">
                   <div class="controls">
-                    <input name="username" id="username" type="text" placeholder="Username / Email Address" class="form-control input"/>
+                    <input name="username" id="username" type="text" placeholder="Username / Email Address"
+                           class="form-control input"/>
                   </div>
                 </div>
 
                 <div class="form-group">
                   <div class="controls">
-                    <input name="password" id="password" type="password" placeholder="Password" class="form-control input"/>
+                    <input name="password" id="password" type="password" placeholder="Password"
+                           class="form-control input"/>
                   </div>
                 </div>
 

@@ -9,7 +9,8 @@ $page->setPageDescription("Register");
 
 $query = new \Database\Queries\login($db);
 
-if (isset($_SESSION['user'])) {
+if ($page->isLogin()) {
+  header("Location: member.php");
   die("Already logged in.");
 }
 
@@ -83,12 +84,9 @@ if (!empty($_POST)) {
 
   $query->runQuery();
 
-  //header("Location: index.php?registered=1");
+  header("Location: login.php?registered=1");
   die("Registered");
 }
-
-$page->setPageTitle("Login");
-$page->setPageDescription("Login Page");
 
 $page->addHeaderHTML('<meta charset="utf-8"/>');
 $page->addHeaderHTML('<meta name="viewport" content="width=device-width, initial-scale=1"/>');
