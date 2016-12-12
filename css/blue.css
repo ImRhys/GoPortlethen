@@ -84,7 +84,7 @@ a:hover {
     color: #0a9fd8;
 }
 
-.nav li.active
+.nav-pills>li.active>a, .nav-pills>li.active>a:focus, .nav-pills>li.active>a:hover
 {
     color: #0a9fd8;
 }
