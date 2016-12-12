@@ -27,31 +27,31 @@
           <div class="dropdown">
             <ul>
               <li>
-                <a href="#">About</a>
+                <a href="#about">About</a>
               </li>
             </ul>
             <ul>
               <li>
-                <a href="#">Contact</a>
+                <a href="#contact">Contact</a>
               </li>
             </ul>
           </div>
         </li>
 
         <li class="drop">
-          <a href="#">
+          <a href="health.php">
             Health
           </a>
 
           <div class="dropdown">
             <ul>
               <li>
-                <a href="#">News</a>
+                <a href="healthnews.php">News</a>
               </li>
             </ul>
             <ul>
               <li>
-                <a href="#">Events</a>
+                <a href="healthevent.php">Events</a>
               </li>
             </ul>
           </div>
@@ -65,12 +65,12 @@
           <div class="dropdown">
             <ul>
               <li>
-                <a href="#">Create a Club Page</a>
+                <a href="/member.php?p=addclub">Create a Club Page</a>
               </li>
             </ul>
             <ul>
               <li>
-                <a href="#">Search Club Pages</a>
+                <a href="clubs.php">Search Club Pages</a>
               </li>
             </ul>
           </div>

@@ -62,7 +62,7 @@
                     <div class="container">
 
                         <!-- About GoPortlethen / START -->
-                        <div class="lg-block text-center">
+                        <div name="about" class="lg-block text-center">
 
                             <div class="title-big">
                                 <h1>About GoPortlethen Initiative</h1>
@@ -254,7 +254,7 @@
             </section>
 
             <!-- Contact / START -->
-            <footer class="headline-divided headline-primary no-margin-bottom">
+            <footer name="contact" class="headline-divided headline-primary no-margin-bottom">
 
                 <div class="contents">
 
