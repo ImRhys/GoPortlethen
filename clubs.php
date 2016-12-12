@@ -28,7 +28,7 @@ $genreQuery->runQuery();
 ?>
 
   <!-- Navigation include -->
-<?php include 'header.php'; ?>
+<?php include 'elements/header.php'; ?>
 
   <div id="content">
     <section id="register">

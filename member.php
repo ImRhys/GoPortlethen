@@ -24,7 +24,7 @@ $page->echoHeader();
 ?>
 
   <!-- Navigation include -->
-<?php include 'header.php'; ?>
+<?php include 'elements/header.php'; ?>
 
   <div class="container">
     <p>Welcome back <b><?= $_SESSION['user']['displayName'] ?></b>.</p>

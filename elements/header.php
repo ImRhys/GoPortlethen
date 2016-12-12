@@ -97,6 +97,9 @@
 
         <li class="drop">
           <?php if (isset($page) && $page->isLogin()) { ?>
+          <a href="member.php">
+            Member
+          </a>
           <a href="logout.php">
             Logout
           </a>
