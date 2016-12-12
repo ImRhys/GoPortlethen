@@ -87,9 +87,6 @@ if (!empty($_POST)) {
   die("Registered");
 }
 
-$page->setPageTitle("Login");
-$page->setPageDescription("Login Page");
-
 $page->addHeaderHTML('<meta charset="utf-8"/>');
 $page->addHeaderHTML('<meta name="viewport" content="width=device-width, initial-scale=1"/>');
 $page->setPageTitle(\Config\Config::get("sitename") . ' - Register');
