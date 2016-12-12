@@ -48,7 +48,7 @@ if (!empty($_POST)) {
   }
 }
 
-if (count($_GET) == 0) {
+if (!isset($_GET['loginfailed'])) {
   $_GET['loginfailed'] = 0;
 }
 
