@@ -42,6 +42,7 @@ $p = $_GET['p'];
       <li role="presentation"><a href="<?= $page->getFilename() ?>?p=profile">Profile</a></li>
       <li role="presentation"><a href="<?= $page->getFilename() ?>?p=users">User Manager</a></li>
       <li role="presentation"><a href="<?= $page->getFilename() ?>?p=clubs">Clubs Editor</a></li>
+      <li role="presentation"><a href="<?= $page->getFilename() ?>?p=addnews">Add News</a></li>
     </ul>
   </div>
 
@@ -57,6 +58,8 @@ if ($p === "clubs") include 'elements/memberclub.php';
 if ($p === "eclubs") include 'elements/membereclub.php';
 if ($p === "addclub") include 'elements/memberaddclub.php';
 if ($p === "addgenre") include 'elements/memberaddgenre.php';
+
+if ($p === "addnews") include 'elements/membernews.php';
 ?>
 
   <!-- Footer / START -->
