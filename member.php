@@ -45,10 +45,10 @@ $p = $_GET['p'];
   </div>
 
 
-
 <?php
-include 'elements/memberprofile.php';
-include 'elements/membereprofile.php';
+if ($p === "profile") include 'elements/memberprofile.php';
+if ($p === "eprofile") include 'elements/membereprofile.php';
+
 ?>
 
   <!-- Footer / START -->
