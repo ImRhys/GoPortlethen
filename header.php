@@ -23,7 +23,7 @@
             <ul class="nav navbar-nav">
 
                 <li class="drop active">
-                    <a href="index.php">
+                    <a href="indexfront.php">
                         Home
                     </a>
                     <div class="dropdown">
