@@ -95,11 +95,16 @@
           </div>
         </li>
 
+        <?php if (isset($page) && $page->isLogin()) { ?>
         <li class="drop">
-          <?php if (isset($page) && $page->isLogin()) { ?>
           <a href="member.php">
             Member
           </a>
+        </li>
+        <?php } ?>
+
+        <li class="drop">
+          <?php if (isset($page) && $page->isLogin()) { ?>
           <a href="logout.php">
             Logout
           </a>
