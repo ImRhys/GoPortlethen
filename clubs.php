@@ -51,7 +51,7 @@ $genreQuery->runQuery();
               <table class="table table-bordered">
                 <?php foreach ($clubResult as $thing) { ?>
                   <tr>
-                    <td colspan="2"><img src="<?= $thing['banner'] ?>" class="img-responsive"/></td>
+                    <td colspan="2" align="center"><img src="<?= $thing['banner'] ?>" class="img-responsive"/></td>
                   </tr>
                   <tr>
                     <td class="col-md-2 text-right"><b>Club Name</b></td>
@@ -116,20 +116,33 @@ $genreQuery->runQuery();
 
 
               <?php if ($clubsQuery->getNumberOfResults() > 0) { ?>
-                <table class="table table-bordered">
+                <table class="table">
                   <thead>
                   <th>Banner</th>
                   <th>Club Name</th>
                   <th>Description</th>
+                  <th></th>
                   </thead>
                   <?php foreach ($clubsResult as $thing) { ?>
                     <tr>
-                      <td class="col-md-3"><a href="clubs.php?club=<?= $thing['clubID'] ?>"><img
-                            src="<?= $thing['banner'] ?>"
-                            class="img-responsive"/></a></td>
-                      <td class="col-md-3"><a
-                          href="clubs.php?club=<?= $thing['clubID'] ?>"><?= $thing['clubName'] ?></a></td>
-                      <td><?= $thing['description'] ?></td>
+                      <td class="col-md-3" align="center" valign="middle">
+                        <a href="clubs.php?club=<?= $thing['clubID'] ?>">
+                          <img src="<?= $thing['banner'] ?>" class="img-responsive img-adjust" />
+                        </a>
+                      </td>
+                      <td class="col-md-3" valign="middle">
+                        <a href="clubs.php?club=<?= $thing['clubID'] ?>">
+                          <?= $thing['clubName'] ?>
+                        </a>
+                      </td>
+                      <td valign="middle">
+                        <?= $thing['description'] ?>
+                      </td>
+                      <td align="center" valign="middle">
+                        <a href="clubs.php?club=<?= $thing['clubID'] ?>">
+                          <button class="btn btn-default">View Club</button>
+                        </a>
+                      </td>
                     </tr>
                   <?php } ?>
                 </table>

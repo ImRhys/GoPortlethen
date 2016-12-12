@@ -32,7 +32,7 @@ $page->echoHeader();
 
   <div class="container">
     <ul class="nav nav-pills col-md-12 pushdown">
-      <li role="presentation" class="active"><a href="#">Home</a></li>
+      <li role="presentation" class="active"><a href="#">Profile</a></li>
       <li role="presentation"><a href="#">Profile</a></li>
       <li role="presentation"><a href="#">Messages</a></li>
     </ul>
