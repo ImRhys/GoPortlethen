@@ -49,59 +49,114 @@ if (!empty($_POST)) {
 }
 
 if (count($_GET) == 0) {
-  $_GET['loginfailed'] = 1;
+  $_GET['loginfailed'] = 0;
 }
 
 if (isset($_GET['loginfailed'])) {
   $page->setPageTitle("Login");
   $page->setPageDescription("Login Page");
 
-  $page->addCSS("bootstrap.css");
+  $page->addHeaderHTML('<meta charset="utf-8"/>');
+  $page->addHeaderHTML('<meta name="viewport" content="width=device-width, initial-scale=1"/>');
+  $page->setPageTitle(\Config\Config::get("sitename") . ' - Login');
+  $page->setPageDescription($page->getPageTitle());
+
+
+  //Fonts
+  $page->addCSS("https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css", false);
+
+  //Style
+  $page->addCSS("https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css", false);
+  $page->addCSS("main.css");
+  $page->addCSS("orange.css");
   $page->addCSS("extra.css");
 
   $page->renderHeader();
   $page->echoHeader();
   ?>
 
-  <div class="container">
-    <?php if ($_GET['loginfailed'] == 2) { ?>
-      <div class="alert alert-warning">You need to login before accessing this page.</div>
-    <?php } else { ?>
-      <div class='alert alert-warning'>Login failed please try again.</div>
-    <?php } ?>
-    <form class="form-horizontal" action="login.php" method="post">
-      <fieldset>
-        <legend>Login</legend>
-        <div class="form-group">
-          <label class="col-md-4 control-label" for="username">Username / Email</label>
+  <!-- Navigation include -->
+  <?php include 'header.php'; ?>
 
-          <div class="col-md-4">
-            <input id="username" name="username" type="text" placeholder="e.g jsmith1 or johnsmith@example.com"
-                   class="form-control input-md" required="">
+  <div id="content">
+    <section id="login">
+      <div class="container">
+        <div class="row">
+          <div
+            class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 col-lg-4 col-lg-offset-4 md-margin-top">
+            <div class="page-subheader text-center">
+              <h1>Sign in</h1>
+              <hr/>
+              <p>If you are not already a member, <a href="register.php">please sign up</a></p>
+            </div>
+
+            <?php if ($_GET['loginfailed'] == 1) { ?>
+              <div class="alert alert-warning">You need to login before accessing this page.</div>
+            <?php } elseif ($_GET['loginfailed'] > 1) { ?>
+              <div class='alert alert-warning'>Login failed please try again.</div>
+            <?php } ?>
+
+
+            <form action="login.php" method="post">
+              <fieldset>
+                <div class="form-group">
+                  <div class="controls">
+                    <input name="username" id="username" type="text" placeholder="Username / Email Address" class="form-control input"/>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <div class="controls">
+                    <input name="password" id="password" type="password" placeholder="Password" class="form-control input"/>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <div class="controls">
+                    <div class="checkbox">
+                      <input name="checkbox" id="checkbox1" value="checkbox1" checked="" type="checkbox">
+                      <label for="checkbox1">
+                        Remember me
+                      </label>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-group">
+
+                  <button class="btn btn-primary">Enter</button>
+                  <a href="#" class="sm-margin-top pull-right">Forgot your password?</a>
+                </div>
+              </fieldset>
+            </form>
           </div>
         </div>
-        <div class="form-group">
-          <label class="col-md-4 control-label" for="password">Password</label>
+        <!-- Row / END -->
+      </div>
+      <!-- Container / END -->
+    </section>
+  </div><!-- Content / END -->
 
-          <div class="col-md-4">
-            <input id="password" name="password" type="password" placeholder="" class="form-control input-md"
-                   required="">
-          </div>
-        </div>
-        <div class='form-group'>
-          <label class='col-md-4 control-label' for='submit'></label>
 
-          <div class='col-md-8'>
-            <button id='submit' type='submit' name='submit' value="Login" class='btn btn-primary'>Submit
-            </button>
-          </div>
-        </div>
-      </fieldset>
-    </form>
-  </div>
+  <!-- Footer / START -->
+  <footer class="footer">
+    <div class="container">
+      <span class="copyright">
+       Copyright <?= \Config\Config::get("copyrightyear") ?>. All rights served.
+      </span>
+
+      <span class="links">
+        <a href="#">Terms of service</a>
+        <a href="#">Privacy policy</a>
+      </span>
+    </div>
+  </footer><!-- Footer / END -->
   <?php
-  $page->addFooterJS("jquery-3.1.1.min.js");
-  $page->addFooterJS("bootstrap.min.js");
+  $page->addFooterJSifIE9("https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js", false);
+  $page->addFooterJSifIE9("https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js", false);
+  $page->addFooterJS("https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js", false);
+  $page->addFooterJS("main.js");
+  $page->addFooterJS("https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js", false);
   $page->renderFooter();
   $page->echoFooter();
 } ?>
