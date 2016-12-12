@@ -23,19 +23,6 @@
           <a href="index.php">
             Home
           </a>
-
-          <div class="dropdown">
-            <ul>
-              <li>
-                <a href="#about">About</a>
-              </li>
-            </ul>
-            <ul>
-              <li>
-                <a href="#contact">Contact</a>
-              </li>
-            </ul>
-          </div>
         </li>
 
         <li class="drop">
