@@ -96,7 +96,7 @@ if (isset($_GET['loginfailed'])) {
               <div class='alert alert-warning'>Login failed please try again.</div>
             <?php } ?>
 
-            <?php if ($_GET['registered'] == 1) { ?>
+            <?php if (isset($_GET['registered']) && $_GET['registered'] == 1) { ?>
               <div class='alert alert-success'>Thank you for registering, please login.</div>
             <?php } ?>
 
