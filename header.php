@@ -96,6 +96,11 @@
         </li>
 
         <li class="drop">
+          <?php if (isset($page) && $page->isLogin()) { ?>
+          <a href="logout.php">
+            Logout
+          </a>
+          <?php } else { ?>
           <a href="login.php">
             Login
           </a>
@@ -108,6 +113,9 @@
             </ul>
           </div>
         </li>
+        <?php } ?>
+
+
       </ul>
     </div>
   </div>
