@@ -17,6 +17,10 @@ $access->runQuery();
         <div class="panel panel-default">
           <div class="panel-heading clearfix">
             <h3 class="panel-title pull-left">Clubs Manager</h3>
+
+            <div class="pull-right">
+              <a href="<?= $page->getFilename() ?>?p=addclub"><button id="back" class="btn btn-default btn-xs">Add</button></a>
+            </div>
           </div>
         </div>
         <table class="table">

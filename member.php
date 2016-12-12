@@ -55,6 +55,7 @@ if ($p === "euser") include 'elements/membereuser.php';
 
 if ($p === "clubs") include 'elements/memberclub.php';
 if ($p === "eclubs") include 'elements/membereclub.php';
+if ($p === "addclub") include 'elements/memberaddclub.php';
 ?>
 
   <!-- Footer / START -->
