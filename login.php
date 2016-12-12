@@ -5,6 +5,12 @@ $page = new \Page\page();
 $page->startSession();
 
 $submitted_username = '';
+
+if (isset($_SESSION['user'])) {
+  header("Location: member.php");
+  die("Already logged in.");
+}
+
 if (!empty($_POST)) {
 
   $query = new \Database\Queries\login($db);
