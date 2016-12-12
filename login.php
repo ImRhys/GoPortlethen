@@ -69,14 +69,6 @@
 
                                 </div>
 
-                                <div class="form-group">
-
-                                    <a href="#" class="btn btn-block btn-facebook btn-flat">
-                                        <i class="fa fa-facebook"></i> Sign in using Facebook
-                                    </a>
-
-                                </div>
-
                             </form>
 
                         </div>
