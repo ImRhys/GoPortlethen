@@ -81,13 +81,13 @@ a:hover {
 
 .navbar .nav li.active a:hover
 {
-    color: #ffffff;
-    background-color: #0a9fd8;
+    color: #0a9fd8;
 }
 
 .nav-pills>li.active>a, .nav-pills>li.active>a:focus, .nav-pills>li.active>a:hover
 {
-    color: #0a9fd8;
+    color: #ffffff;
+    background-color: #0a9fd8;
 }
 
 /* Mobile editions */

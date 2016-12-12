@@ -82,6 +82,12 @@ a:hover {
     color: #94c523;
 }
 
+.nav-pills>li.active>a, .nav-pills>li.active>a:focus, .nav-pills>li.active>a:hover
+{
+    color: #ffffff;
+    background-color: #94c523;
+}
+
 /* Mobile editions */
 @media(max-width: 768px) {
     .navbar-default .navbar-toggle:focus,
