@@ -59,7 +59,7 @@
                 </li>
 
                 <li class="drop">
-                    <a href="viewclubs.php">
+                    <a href="clubs.php">
                         Clubs
                     </a>
                     <div class="dropdown">
