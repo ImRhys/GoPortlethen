@@ -45,6 +45,10 @@ if (!empty($_POST)) {
     unset($result['password']); //Don't pass our hash into the session
     $_SESSION['user'] = $result;
 
+    $levelQuery = new \Database\Queries\accesslevel($db);
+    $levelQuery->runQuery();
+    $_SESSION['user']['accessName'] = $levelQuery->getAccessLevelNameByID($result['accessLevel']);
+
     header("Location: member.php");
     die("Redirecting to: member.php");
 

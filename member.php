@@ -2,6 +2,7 @@
 
 require 'global.php';
 $page = new \Page\admin();
+$page->setFilename("member.php");
 $page->startSession();
 $page->checkLogin();
 
@@ -21,6 +22,12 @@ $page->addCSS("extra.css");
 
 $page->renderHeader();
 $page->echoHeader();
+
+if (!isset($_GET['p'])) {
+  $_GET['p'] = "profile";
+}
+
+$p = $_GET['p'];
 ?>
 
   <!-- Navigation include -->
@@ -32,11 +39,45 @@ $page->echoHeader();
 
   <div class="container">
     <ul class="nav nav-pills col-md-12 pushdown">
-      <li role="presentation" class="active"><a href="#">Profile</a></li>
-      <li role="presentation"><a href="#">Profile</a></li>
+      <li role="presentation" class="active"><a href="<?= $page->getFilename() ?>?p=profile">Profile</a></li>
       <li role="presentation"><a href="#">Messages</a></li>
     </ul>
   </div>
+
+<?php if ($p === "profile") { ?>
+  <div class="content">
+    <div class="container pushdown">
+      <sectiond id="profile">
+        <div class="panel panel-default">
+          <div class="panel-heading clearfix">
+            <h3 class="panel-title pull-left">Profile Summary</h3>
+            <a href="" class="pull-right">
+              <button class="btn btn-default btn-xs">Edit</button>
+            </a>
+          </div>
+          <table class="table">
+            <tr>
+              <td class="col-md-2 text-right"><b>Username</b></td>
+              <td><?= $_SESSION['user']['userName'] ?></td>
+            </tr>
+            <tr>
+              <td class="col-md-2 text-right"><b>Full Name</b></td>
+              <td><?= $_SESSION['user']['displayName'] ?></td>
+            </tr>
+            <tr>
+              <td class="col-md-2 text-right"><b>Email Address</b></td>
+              <td><?= $_SESSION['user']['emailAddress'] ?></td>
+            </tr>
+            <tr>
+              <td class="col-md-2 text-right"><b>Access Level</b></td>
+              <td><?= $_SESSION['user']['accessName'] ?></td>
+            </tr>
+          </table>
+        </div>
+      </sectiond>
+    </div>
+  </div>
+<?php } ?>
 
   <!-- Footer / START -->
   <footer class="footer">
