@@ -6,10 +6,10 @@ use \Config\Config as Config;
 
 class query {
 
-  private $parameters;
-  private $query;
-  private $db;
-  private $result;
+  public $parameters;
+  public $query;
+  public $db;
+  public $result;
 
   public $stmt;
 
