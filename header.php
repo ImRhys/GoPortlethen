@@ -23,7 +23,7 @@
             <ul class="nav navbar-nav">
 
                 <li class="drop active">
-                    <a href="indexfront.php">
+                    <a href="index.php">
                         Home
                     </a>
                     <div class="dropdown">
@@ -100,13 +100,13 @@
                 </li>
 
                 <li class="drop">
-                    <a href="login.php">
+                    <a href="loginfront.php">
                         Login
                     </a>
                     <div class="dropdown">
                         <ul>
                             <li>
-                                <a href="register.html">Register</a>
+                                <a href="registerfront.php">Register</a>
                             </li>
                         </ul>
                     </div>
