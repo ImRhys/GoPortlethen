@@ -11,7 +11,7 @@ $access->runQuery();
       <sectiond id="editclub">
         <div class="panel panel-default">
           <div class="panel-heading clearfix">
-            <h3 class="panel-title pull-left">Clubs Manager - Add</h3>
+            <h3 class="panel-title pull-left">Clubs Manager - Add Club</h3>
 
             <div class="pull-right">
               <button id="back" class="btn btn-default btn-xs">Back</button>
