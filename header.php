@@ -12,7 +12,7 @@
                 <span class="icon-bar"></span>
             </button>
 
-            <a class="navbar-brand" id="logo" href="#">
+            <a class="navbar-brand" id="logo" href="index.php">
                 <span class="highlight-text">G</span>o<span class="highlight-text">P</span>ortlethen
             </a>
         </div>
