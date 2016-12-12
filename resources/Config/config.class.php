@@ -6,9 +6,9 @@ namespace Config;
 class Config {
   private static $configarr = array(
     "sitename" => "GoPortlethen",
-    "debug" => false,
+    "debug" => true,
     "dbname" => "", //Set in db.class.php
-    "displayerror" => true,
+    "displayerror" => false,
     "copyrightyear" => "2016"
   );
 
