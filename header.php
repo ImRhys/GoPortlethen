@@ -29,7 +29,7 @@
                     <div class="dropdown">
                         <ul>
                             <li>
-                                <a href="#lg-block headline">About TEST123header</a>
+                                <a href="#">About</a>
                             </li>
                         </ul>
                         <ul>
@@ -76,6 +76,24 @@
                         <ul>
                             <li>
                                 <a href="#">Search Club Pages</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+
+                <li class="drop">
+                    <a href="#">
+                        Maps
+                    </a>
+                    <div class="dropdown">
+                        <ul>
+                            <li>
+                                <a href="#">Viewpoints</a>
+                            </li>
+                        </ul>
+                        <ul>
+                            <li>
+                                <a href="#">Routes</a>
                             </li>
                         </ul>
                     </div>
