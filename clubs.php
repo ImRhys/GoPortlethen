@@ -17,6 +17,7 @@ $genreQuery->runQuery();
 
 ?>
 
+<!--
   <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container">
       <div class="navbar-header">
@@ -35,10 +36,12 @@ $genreQuery->runQuery();
           <li class="active"><a href="clubs.php">Clubs</a></li>
           <li><a href="#">Health and Wellbeing</a></li>
         </ul>
-      </div>
+      </div> -->
       <!--/.nav-collapse -->
-    </div>
-  </nav>
+    <!-- </div>
+  </nav> -->
+
+
 
 <?php if (isset($_GET['club']) && is_numeric($_GET['club'])) {
   $clubQuery = new \Database\query($db);
