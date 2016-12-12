@@ -11,9 +11,9 @@ if (!empty($_POST)) {
 
   //check if it's an email address
   if (strpos($_POST['username'], '@') === false) {
-    $result = $query->quickQuery("SELECT * FROM users WHERE userName = :username", ["username" => $_POST['username']]);
+    $result = $query->quickQuery("SELECT * FROM users WHERE userName = :username", [":username" => $_POST['username']]);
   } else {
-    $result = $query->quickQuery("SELECT * FROM users WHERE email = :email", ["email" => $_POST['username']]);
+    $result = $query->quickQuery("SELECT * FROM users WHERE email = :email", [":email" => $_POST['username']]);
   }
 
   $loginok = false;
