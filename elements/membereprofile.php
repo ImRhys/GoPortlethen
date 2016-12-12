@@ -1,9 +1,9 @@
 <div coccurredontent">
 <div class="container pushdown">
-  <sectiond id="profile">
+  <sectiond id="editprofile">
     <div class="panel panel-default">
       <div class="panel-heading clearfix">
-        <h3 class="panel-title pull-left">Profile Summary</h3>
+        <h3 class="panel-title pull-left">Profile - Edit</h3>
 
         <div class="pull-right">
           <a href="<?= $page->getFilename() ?>?p=profile">
@@ -18,7 +18,7 @@
         $uquery = new \Database\Queries\user($db);
         $passvar = "";
 
-        if (isset($_POST['password']) && isset($_POST['password2']) && $_POST['password'] == $_POST['password2']) {
+        if (isset($_POST['password']) && isset($_POST['password2']) && $_POST['password'] !== "" && $_POST['password2'] !== "" && $_POST['password'] == $_POST['password2']) {
           $hash = new \Helper\hash();
           $hash->setPlain($_POST['password']);
           $hash->genSalt();
@@ -39,6 +39,8 @@
           die("Invalid E-Mail Address");
         }
 
+        $uquery->checkUsernameAndEmailExists("zxcvbnm", $_POST['email'], $db);
+
         $arr = [
           ":userID" => $_SESSION['user']['userID'],
           ":displayName" => $_POST['fullname'],
@@ -54,8 +56,8 @@
               SET
                 displayName = :displayName,
                 emailAddress = :emailAddress"
-          . ($passvar !== "" ? ",\npassword = :password\n" : "") .
-          "WHERE
+          . ($passvar !== "" ? ",\npassword = :password" : "") .
+          "\nWHERE
                 userID = :userID
             "
         );
@@ -132,7 +134,6 @@
       <?= $page->endForm() ?>
     </div>
   </sectiond>
-</div>
 </div>
 <?php
 $page->addFooterRawJS("

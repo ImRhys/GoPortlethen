@@ -37,4 +37,12 @@ class user extends \Database\query {
     return $this->getResult();
   }
 
+  public function checkUsernameAndEmailExists($username, $email, \Database\db $db) {
+    $qq = new user($db);
+    $qq->quickQuery("SELECT * FROM users WHERE userName = :username OR emailAddress = :email", [":username" => $username, ":email" => $email]);
+    if ($qq->getResult() > 0) {
+      die("Username or Email Address already taken");
+    }
+  }
+
 }
