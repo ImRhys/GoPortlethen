@@ -44,7 +44,7 @@ if (!empty($_POST)) {
 
   } else {
     $submitted_username = htmlentities($_POST['username'], ENT_QUOTES, 'UTF-8');
-    header("Location: login.php?loginfailed=1");
+    header("Location: login.php?loginfailed=2");
   }
 }
 
@@ -96,18 +96,24 @@ if (isset($_GET['loginfailed'])) {
               <div class='alert alert-warning'>Login failed please try again.</div>
             <?php } ?>
 
+            <?php if ($_GET['registered'] == 1) { ?>
+              <div class='alert alert-success'>Thank you for registering, please login.</div>
+            <?php } ?>
+
 
             <form action="login.php" method="post">
               <fieldset>
                 <div class="form-group">
                   <div class="controls">
-                    <input name="username" id="username" type="text" placeholder="Username / Email Address" class="form-control input"/>
+                    <input name="username" id="username" type="text" placeholder="Username / Email Address"
+                           class="form-control input"/>
                   </div>
                 </div>
 
                 <div class="form-group">
                   <div class="controls">
-                    <input name="password" id="password" type="password" placeholder="Password" class="form-control input"/>
+                    <input name="password" id="password" type="password" placeholder="Password"
+                           class="form-control input"/>
                   </div>
                 </div>
 

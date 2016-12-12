@@ -83,7 +83,7 @@ if (!empty($_POST)) {
 
   $query->runQuery();
 
-  //header("Location: index.php?registered=1");
+  header("Location: login.php?registered=1");
   die("Registered");
 }
 
