@@ -66,6 +66,15 @@ class page {
     $this->JSFoot .= $this->toJSTag($name, $jsDir);
   }
 
+  /**
+   * Adds Javascript to the page footer with included if IE 9 tags
+   * @param string $name Javascript filename
+   * @param bool|true $jsDir inside the Javascript directory?
+   */
+  public function addFooterJSifIE9($name, $jsDir = true) {
+    $this->JSFoot .= "\n<!--[if lt IE 9]>\n" . $this->toJSTag($name, $jsDir) . "\n<![endif]-->\n";
+  }
+
   public function addFooterRawJS($script) {
     $this->JSFootRaw .= "<script>" . $script . "</script>";
   }

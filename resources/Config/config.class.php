@@ -8,7 +8,8 @@ class Config {
     "sitename" => "GoPortlethen",
     "debug" => false,
     "dbname" => "", //Set in db.class.php
-    "displayerror" => true
+    "displayerror" => true,
+    "copyrightyear" => "2016"
   );
 
   /**
