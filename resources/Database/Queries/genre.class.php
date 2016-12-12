@@ -27,6 +27,20 @@ class genre extends \Database\query {
   }
 
   /**
+   * Generate list of options for the select tags
+   * @param string $id ID
+   * @return string list of options
+   */
+  public function generateListFromID($id) {
+    $out = "";
+    foreach ($this->getResult() as $key => $value) {
+      $out .= '<option value="' . $value['genreID'] . '" ' . ($id === $value['genreID'] ? 'selected="selected"' : '' ) . '>' . $value['name'] . '</option>';
+    }
+
+    return $out;
+  }
+
+  /**
    * Get the genre name by the given genre ID
    * @param $id genre ID
    * @return string genre name

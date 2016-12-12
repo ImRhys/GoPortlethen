@@ -41,6 +41,7 @@ $p = $_GET['p'];
     <ul class="nav nav-pills col-md-12 pushdown">
       <li role="presentation"><a href="<?= $page->getFilename() ?>?p=profile">Profile</a></li>
       <li role="presentation"><a href="<?= $page->getFilename() ?>?p=users">User Manager</a></li>
+      <li role="presentation"><a href="<?= $page->getFilename() ?>?p=clubs">Clubs Editor</a></li>
     </ul>
   </div>
 
@@ -48,8 +49,12 @@ $p = $_GET['p'];
 <?php
 if ($p === "profile") include 'elements/memberprofile.php';
 if ($p === "eprofile") include 'elements/membereprofile.php';
+
 if ($p === "users") include 'elements/memberusers.php';
 if ($p === "euser") include 'elements/membereuser.php';
+
+if ($p === "clubs") include 'elements/memberclub.php';
+if ($p === "eclubs") include 'elements/membereclub.php';
 ?>
 
   <!-- Footer / START -->
