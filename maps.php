@@ -30,6 +30,9 @@
                         <hr/>
                         <p>Different places of interest around Portlethen and surround areas!</p>
                     </div>
+                </div>
+
+                <div class="row">
 
                     <div id="map"></div>
                     <script>
@@ -46,14 +49,17 @@
 
                     <div class="row"></div><button class="btn btn-default" onclick="location1()">Portlethen Train Station</button></div>
 
-                <script>
-                    function location1(){
-                        map = new google.maps.Map(document.getElementById('map'), {
-                            center: {lat: 57.0615139, lng: -2.1980521},
-                            zoom: 15,})
-                    }
-                </script>
-                <!-- Row / END AZURE SUCKS. -->
+                    <script>
+                        function location1(){
+                            map = new google.maps.Map(document.getElementById('map'), {
+                                center: {lat: 57.0615139, lng: -2.1980521},
+                                zoom: 15,})
+                        }
+                    </script>
+                </div>
+
+                </div>
+                <!-- Row / END -->
             </div>
             <!-- Container / END -->
         </div>
