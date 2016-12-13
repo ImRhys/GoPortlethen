@@ -29,19 +29,6 @@
           <a href="health.php">
             Health
           </a>
-
-          <div class="dropdown">
-            <ul>
-              <li>
-                <a href="healthnews.php">News</a>
-              </li>
-            </ul>
-            <ul>
-              <li>
-                <a href="healthevent.php">Events</a>
-              </li>
-            </ul>
-          </div>
         </li>
 
         <li class="drop">
@@ -64,22 +51,9 @@
         </li>
 
         <li class="drop">
-          <a href="#">
+          <a href="maps.php">
             Maps
           </a>
-
-          <div class="dropdown">
-            <ul>
-              <li>
-                <a href="#">Viewpoints</a>
-              </li>
-            </ul>
-            <ul>
-              <li>
-                <a href="#">Routes</a>
-              </li>
-            </ul>
-          </div>
         </li>
 
         <?php if (isset($page) && $page->isLogin()) { ?>
