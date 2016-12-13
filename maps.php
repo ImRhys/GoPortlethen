@@ -58,7 +58,7 @@
                     </script>
 
                 </div>
-                <!-- Row / END -->
+                <!-- Row / END AZURE SUCKS. -->
             </div>
             <!-- Container / END -->
         </div>
