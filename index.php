@@ -1,4 +1,8 @@
 <!DOCTYPE html>
+<?php
+include 'global.php';
+$page->startSession();
+?>
 <html lang="en-GB">
     <head>
         <meta charset="utf-8"/>
