@@ -61,9 +61,15 @@ $page->startSession();
 
                 <script>
                     function location1(){
-                        map = new google.maps.Map(document.getElementById('map'), {
-                            center: {lat: 57.06141, lng: -2.127692},
-                            zoom: 15,})
+                        var portlethenstation = {lat: 57.06141, lng: -2.127692};
+                        var map = new google.maps.Map(document.getElementById('map'), {
+                            zoom: 20,
+                            center: portlethenstation
+                        });
+                        var marker = new google.maps.Marker({
+                            position: portlethenstation,
+                            map: map
+                        });
                     }
                 </script>
 
