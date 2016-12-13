@@ -47,12 +47,32 @@ $page->startSession();
               $newq = new \Database\query($db);
               $newq->setQuery("SELECT * FROM health_news ORDER BY itemID DESC");
               $newq->runQuery();
+
+              $delete = "";
+              $access = new \Database\Queries\accesslevel($db);
+              $access->runQuery();
+
+              if (isset($_GET['d']) && is_numeric(intval($_GET['d']))) {
+                if (isset($_SESSION['user']) && $access->getAccessLevelIDByName($_SESSION['user']['accessName']) > 8) {
+                  $qq = new \Database\Queries\user($db);
+                  $qq->quickQuery("DELETE FROM health_news WHERE itemID = :id", [":id" => $_GET['d']]);
+                  header("Location: health.php");
+                }
+              }
               ?>
 
               <?php foreach ($newq->getResult() as $thing) { ?>
                 <tr>
                   <td>
-                    <h4><?= $thing['title'] ?></h4>
+                    <h4>
+                      <?php
+                      if (isset($_SESSION['user']) && $access->getAccessLevelIDByName($_SESSION['user']['accessName']) > 8) {
+                        echo '<a href="health.php?d='. $thing['itemID'] . '"><button class="btn btn-default btn-xs">Delete</button></a>';
+                      }
+                      ?>
+                      <?= $thing['title'] ?>
+                    </h4>
+
                     <p><?= $thing['content'] ?></p>
                   </td>
                 </tr>
