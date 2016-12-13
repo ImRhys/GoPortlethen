@@ -34,25 +34,24 @@
 
                 <div class="container pushdown">
 
-                    <div id="mapping"></div>
+                    <div id="map"></div>
                     <script>
                         var map;
                         function initMap() {
-                            map = new google.maps.Map(document.getElementById('mapping'), {
+                            map = new google.maps.Map(document.getElementById('map'), {
                                 center: {lat: 57.0577505, lng: -2.1381166},
                                 zoom: 10
                             });
                         }
                     </script>
-                    <script async defer
-                            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBsbhf6mn3XKtGqIS50tlexl8zJL3Dk7TE">
-                    </script>
 
-                    <button class="btn btn-default" onclick="location1()">Portlethen Train Station</button>
+                    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBsbhf6mn3XKtGqIS50tlexl8zJL3Dk7TE"></script>
+
+                    <div class="row"></div><button class="btn btn-default" onclick="location1()">Portlethen Train Station</button></div>
 
                     <script>
                         function location1(){
-                            map = new google.maps.Map(document.getElementById('mapping'), {
+                            map = new google.maps.Map(document.getElementById('map'), {
                                 center: {lat: 57.0615139, lng: -2.1980521},
                                 zoom: 15,})
                         }
