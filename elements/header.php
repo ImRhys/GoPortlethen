@@ -35,19 +35,6 @@
           <a href="clubs.php">
             Clubs
           </a>
-
-          <div class="dropdown">
-            <ul>
-              <li>
-                <a href="/member.php?p=addclub">Create a Club Page</a>
-              </li>
-            </ul>
-            <ul>
-              <li>
-                <a href="clubs.php">Search Club Pages</a>
-              </li>
-            </ul>
-          </div>
         </li>
 
         <li class="drop">
