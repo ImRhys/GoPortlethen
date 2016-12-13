@@ -49,7 +49,7 @@ $page->startSession();
                         }
                     </script>
 
-                    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBsbhf6mn3XKtGqIS50tlexl8zJL3Dk7TE"></script>
+                    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBsbhf6mn3XKtGqIS50tlexl8zJL3Dk7TE&callback=initMap"></script>
 
                     <div class="row"></div><button class="btn btn-default" onclick="location1()">Portlethen Train Station</button></div>
 
