@@ -38,28 +38,36 @@ $page->startSession();
 
                 <div class="row">
 
-                    <div id="map"></div>
-                    <script>
-                        var map;
-                        function initMap() {
-                            map = new google.maps.Map(document.getElementById('map'), {
-                                center: {lat: 57.0577505, lng: -2.1381166},
-                                zoom: 10
-                            });
-                        }
-                    </script>
+                <div id="map"></div>
+                <script>
+                    function initMap() {
+                        var portlethen = {lat: 57.0577505, lng: -2.1381166};
+                        var map = new google.maps.Map(document.getElementById('map'), {
+                            zoom: 4,
+                            center: portlethen
+                        });
+                        var marker = new google.maps.Marker({
+                            position: portlethen,
+                            map: map
+                        });
+                    }
+                </script>
+                <script async defer
+                        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA9_cx-C5lvJPvxiOR67S_1M2EAWS9Sc7k&callback=initMap">
+                </script>
 
-                    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA9_cx-C5lvJPvxiOR67S_1M2EAWS9Sc7k&callback=initMap"></script>
 
                     <div class="row"></div><button class="btn btn-default" onclick="location1()">Portlethen Train Station</button></div>
 
-                    <script>
-                        function location1(){
-                            map = new google.maps.Map(document.getElementById('map'), {
-                                center: {lat: 57.0615139, lng: -2.1980521},
-                                zoom: 15,})
-                        }
-                    </script>
+
+                <script>
+                    function location1(){
+                        map = new google.maps.Map(document.getElementById('map'), {
+                            center: {lat: 57.0615139, lng: -2.1980521},
+                            zoom: 15,})
+                    }
+                </script>
+
                 </div>
 
                 </div>
