@@ -43,7 +43,7 @@ $page->startSession();
                     function initMap() {
                         var portlethen = {lat: 57.0577505, lng: -2.1381166};
                         var map = new google.maps.Map(document.getElementById('map'), {
-                            zoom: 4,
+                            zoom: 20,
                             center: portlethen
                         });
                         var marker = new google.maps.Marker({
