@@ -58,7 +58,9 @@ $access->runQuery();
               die("Missing accesslevel.");
             }
 
-            $updquery->checkUsernameAndEmailExists($_POST['displayName'], $_POST['emailAddress'], $db);
+            if ($_POST['emailAddress'] !== $result['emailAddress'] || $_POST['displayName'] !== $result['displayName']) {
+              $updquery->checkUsernameAndEmailExists($_POST['displayName'], $_POST['emailAddress'], $db);
+            }
 
             $arr = [
               ":userID" => intval($_GET['u']),
