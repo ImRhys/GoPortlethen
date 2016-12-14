@@ -63,7 +63,7 @@ $access->runQuery();
             }
 			
 			if ($_POST['displayName'] !== $result['displayName']) {
-		      $updquery->checkUsernameExists($_POST['displayName'], $db)
+		      $updquery->checkUsernameExists($_POST['displayName'], $db);
 			}
 
             $arr = [
