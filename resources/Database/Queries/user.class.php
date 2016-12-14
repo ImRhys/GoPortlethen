@@ -44,5 +44,13 @@ class user extends \Database\query {
       die("Username or Email Address already taken");
     }
   }
+  
+  public function checkUsernameExists($username, \Database\db $db) {
+	$this->checkUsernameAndEmailExists($username, "", $db);
+  }
+  
+  public function checkEmailExists($email, \Database\db) {
+    $this->checkUsernameAndEmailExists("", $email, $db);
+  }
 
 }
