@@ -49,7 +49,7 @@ class user extends \Database\query {
 	$this->checkUsernameAndEmailExists($username, "", $db);
   }
   
-  public function checkEmailExists($email, \Database\db) {
+  public function checkEmailExists($email, \Database\db $db) {
     $this->checkUsernameAndEmailExists("", $email, $db);
   }
 
