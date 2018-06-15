@@ -1,4 +1,2 @@
 # goportlethen
-GoPortlethen webpage.
-
-Stop reading this. Scooby Doo.
+GoPortlethen webpage project
